@@ -178,7 +178,7 @@ namespace RadarrSharp.Endpoints.Movie
         /// <returns></returns>
         public async Task<IList<Models.Movie>> DiscoverMovies([Optional] MovieDiscoverAction movieDiscoverAction)
         {
-            var json = await _radarrClient.ProcessJson("GET", $"/movies/discover{(movieDiscoverAction != 0 ? $"/{movieDiscoverAction.ToString()}" : "")}");
+            var json = await _radarrClient.ProcessJson("GET", $"/movies/discover{(movieDiscoverAction != 0 ? $"/{movieDiscoverAction}" : "")}");
             return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Movie>>(json, ObjectConverter.Settings));
         }
     }

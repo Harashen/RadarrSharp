@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace RadarrSharp.Helpers
 {
@@ -13,22 +14,7 @@ namespace RadarrSharp.Helpers
         {
             if (keyValuePairs.Count == 0) return null;
 
-            string output = null;
-            bool firstParam = true;
-
-            foreach (var keyValue in keyValuePairs)
-            {
-                if (firstParam)
-                {
-                    output += $"?{keyValue.Key}={keyValue.Value.ToString()}";
-                    firstParam = false;
-                    continue;
-                }
-
-                output += $"&{keyValue.Key}={keyValue.Value.ToString()}";
-            }
-
-            return output;
+            return "?" + string.Join("&", keyValuePairs.Select(pair => pair.Key + "=" + pair.Value));
         }
     }
 }
