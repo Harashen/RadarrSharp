@@ -15,7 +15,7 @@ namespace RadarrSharp.Endpoints.Log
     /// <seealso cref="RadarrSharp.Endpoints.Log.ILog" />
     public class Log : ILog
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Log"/> class.

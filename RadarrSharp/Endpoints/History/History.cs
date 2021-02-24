@@ -12,7 +12,7 @@ namespace RadarrSharp.Endpoints.History
     /// <seealso cref="RadarrSharp.Endpoints.History.IHistory" />
     public class History : IHistory
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="History" /> class.

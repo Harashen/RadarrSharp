@@ -12,7 +12,7 @@ namespace RadarrSharp.Endpoints.Diskspace
     /// <seealso cref="RadarrSharp.Endpoints.Diskspace.IDiskspace" />
     public class Diskspace : IDiskspace
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Diskspace" /> class.

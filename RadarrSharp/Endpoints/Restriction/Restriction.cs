@@ -12,7 +12,7 @@ namespace RadarrSharp.Endpoints.Restriction
     /// <seealso cref="RadarrSharp.Endpoints.Restriction.IRestriction" />
     public class Restriction : IRestriction
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Restriction"/> class.

@@ -8,7 +8,7 @@ namespace RadarrSharpUnitTest
     [TestClass]
     public class EndpointTest
     {
-        private RadarrClient _radarrClient = new RadarrClient(Resources.Host, int.Parse(Resources.Port), Resources.ApiKey, Resources.UrlBase) { WriteDebug = true };
+        private readonly RadarrClient _radarrClient = new RadarrClient(Resources.Host, int.Parse(Resources.Port), Resources.ApiKey, Resources.UrlBase) { WriteDebug = true };
 
         [TestMethod]
         public async Task GetMovies()

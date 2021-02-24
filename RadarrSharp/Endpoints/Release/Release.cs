@@ -12,7 +12,7 @@ namespace RadarrSharp.Endpoints.Release
     /// <seealso cref="RadarrSharp.Endpoints.Release.IRelease" />
     public class Release : IRelease
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Release"/> class.

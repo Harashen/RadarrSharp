@@ -12,7 +12,7 @@ namespace RadarrSharp.Endpoints.Wanted
     /// <seealso cref="RadarrSharp.Endpoints.Wanted.IWanted" />
     public class Wanted : IWanted
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Wanted" /> class.

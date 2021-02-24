@@ -11,7 +11,7 @@ namespace RadarrSharp.Endpoints.Config
     /// <seealso cref="RadarrSharp.Endpoints.Config.IConfig" />
     public class Config : IConfig
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Config" /> class.

@@ -13,7 +13,7 @@ namespace RadarrSharp.Endpoints.Queue
     /// <seealso cref="RadarrSharp.Endpoints.Queue.IQueue" />
     public class Queue : IQueue
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Queue"/> class.

@@ -13,7 +13,7 @@ namespace RadarrSharp.Endpoints.Command
     /// <seealso cref="RadarrSharp.Endpoints.Command.ICommand" />
     public class Command : ICommand
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Command" /> class.

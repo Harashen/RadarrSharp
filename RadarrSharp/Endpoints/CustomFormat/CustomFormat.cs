@@ -12,7 +12,7 @@ namespace RadarrSharp.Endpoints.CustomFormat
     /// <seealso cref="RadarrSharp.Endpoints.CustomFormat.ICustomFormat" />
     public class CustomFormat : ICustomFormat
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomFormat"/> class.

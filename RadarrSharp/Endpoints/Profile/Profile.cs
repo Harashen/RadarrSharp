@@ -12,7 +12,7 @@ namespace RadarrSharp.Endpoints.Profile
     /// <seealso cref="RadarrSharp.Endpoints.Profile.IProfile" />
     public class Profile : IProfile
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Profile" /> class.

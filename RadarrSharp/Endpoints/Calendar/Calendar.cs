@@ -13,7 +13,7 @@ namespace RadarrSharp.Endpoints.Calendar
     /// <seealso cref="RadarrSharp.Endpoints.Calendar.ICalendar" />
     public class Calendar : ICalendar
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Calendar" /> class.

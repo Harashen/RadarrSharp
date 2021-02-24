@@ -12,7 +12,7 @@ namespace RadarrSharp.Endpoints.Blacklist
     /// <seealso cref="RadarrSharp.Endpoints.Blacklist.IBlacklist" />
     public class Blacklist : IBlacklist
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Blacklist"/> class.
