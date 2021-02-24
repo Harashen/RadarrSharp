@@ -24,7 +24,7 @@ namespace RadarrSharp.Endpoints.Movie
         /// <param name="sortKey">Sort key, id, title or date - Default id</param>
         /// <param name="sortDir">Sort direction, asc or desc - Default asc</param>
         /// <returns></returns>
-        Task<Models.MoviePage> GetMoviesPaged(int page = 1, int pageSize = 10, string sortKey = "id", string sortDir = "default");
+        Task<IList<Models.Movie>> GetMoviesPaged(int page = 1, int pageSize = 10, string sortKey = "id", string sortDir = "default");
 
         /// <summary>
         /// Returns the movie with the matching ID
