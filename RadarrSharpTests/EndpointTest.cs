@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RadarrSharp;
-using RadarrSharpUnitTest.Properties;
+using RadarrSharpTests.Properties;
 
 namespace RadarrSharpUnitTest
 {
