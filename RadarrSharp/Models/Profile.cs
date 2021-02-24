@@ -46,7 +46,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The language.
         /// </value>
-        [JsonPropertyName("language")] public string Language { get; set; }
+        [JsonPropertyName("language")] public Language Language { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
