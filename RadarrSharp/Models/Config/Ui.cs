@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models.Config
 {
@@ -13,7 +13,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The first day of week.
         /// </value>
-        [J("firstDayOfWeek")] public long FirstDayOfWeek { get; set; }
+        [JsonPropertyName("firstDayOfWeek")] public long FirstDayOfWeek { get; set; }
 
         /// <summary>
         /// Gets or sets the calendar week column header.
@@ -21,7 +21,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The calendar week column header.
         /// </value>
-        [J("calendarWeekColumnHeader")] public string CalendarWeekColumnHeader { get; set; }
+        [JsonPropertyName("calendarWeekColumnHeader")] public string CalendarWeekColumnHeader { get; set; }
 
         /// <summary>
         /// Gets or sets the short date format.
@@ -29,7 +29,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The short date format.
         /// </value>
-        [J("shortDateFormat")] public string ShortDateFormat { get; set; }
+        [JsonPropertyName("shortDateFormat")] public string ShortDateFormat { get; set; }
 
         /// <summary>
         /// Gets or sets the long date format.
@@ -37,7 +37,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The long date format.
         /// </value>
-        [J("longDateFormat")] public string LongDateFormat { get; set; }
+        [JsonPropertyName("longDateFormat")] public string LongDateFormat { get; set; }
 
         /// <summary>
         /// Gets or sets the time format.
@@ -45,7 +45,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The time format.
         /// </value>
-        [J("timeFormat")] public string TimeFormat { get; set; }
+        [JsonPropertyName("timeFormat")] public string TimeFormat { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [show relative dates].
@@ -53,7 +53,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [show relative dates]; otherwise, <c>false</c>.
         /// </value>
-        [J("showRelativeDates")] public bool ShowRelativeDates { get; set; }
+        [JsonPropertyName("showRelativeDates")] public bool ShowRelativeDates { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [enable color impaired mode].
@@ -61,7 +61,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [enable color impaired mode]; otherwise, <c>false</c>.
         /// </value>
-        [J("enableColorImpairedMode")] public bool EnableColorImpairedMode { get; set; }
+        [JsonPropertyName("enableColorImpairedMode")] public bool EnableColorImpairedMode { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -69,6 +69,6 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [JsonPropertyName("id")] public long Id { get; set; }
     }
 }

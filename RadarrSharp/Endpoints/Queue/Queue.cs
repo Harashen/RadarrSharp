@@ -1,7 +1,8 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.Queue
@@ -30,7 +31,7 @@ namespace RadarrSharp.Endpoints.Queue
         public async Task<IList<Models.Queue>> GetQueue()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/queue");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Queue>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Queue>>(json, ObjectConverter.Settings));
         }
 
         /// <summary>

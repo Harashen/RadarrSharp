@@ -1,5 +1,6 @@
-﻿using RadarrSharp.Enums;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using RadarrSharp.Enums;
+
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -14,7 +15,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The type of the cover.
         /// </value>
-        [J("coverType")] public CoverType CoverType { get; set; }
+        [JsonPropertyName("coverType")] public CoverType CoverType { get; set; }
 
         /// <summary>
         /// Gets or sets the URL.
@@ -22,6 +23,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The URL.
         /// </value>
-        [J("url")] public string Url { get; set; }
+        [JsonPropertyName("url")] public string Url { get; set; }
     }
 }

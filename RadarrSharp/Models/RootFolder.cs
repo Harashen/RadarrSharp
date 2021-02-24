@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
-using N = Newtonsoft.Json.NullValueHandling;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -15,7 +14,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The path.
         /// </value>
-        [J("path")] public string Path { get; set; }
+        [JsonPropertyName("path")] public string Path { get; set; }
 
         /// <summary>
         /// Gets or sets the free space.
@@ -23,7 +22,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The free space.
         /// </value>
-        [J("freeSpace")] public long FreeSpace { get; set; }
+        [JsonPropertyName("freeSpace")] public long FreeSpace { get; set; }
 
         /// <summary>
         /// Gets or sets the total space.
@@ -31,7 +30,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The total space.
         /// </value>
-        [J("totalSpace")] public long TotalSpace { get; set; }
+        [JsonPropertyName("totalSpace")] public long TotalSpace { get; set; }
 
         /// <summary>
         /// Gets or sets the unmapped folders.
@@ -39,7 +38,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The unmapped folders.
         /// </value>
-        [J("unmappedFolders", NullValueHandling = N.Ignore)] public IList<UnmappedFolder> UnmappedFolders { get; set; }
+        [JsonPropertyName("unmappedFolders")] public IList<UnmappedFolder> UnmappedFolders { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -47,6 +46,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

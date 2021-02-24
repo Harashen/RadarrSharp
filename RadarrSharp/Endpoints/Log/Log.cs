@@ -1,9 +1,10 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.Log
@@ -32,7 +33,7 @@ namespace RadarrSharp.Endpoints.Log
         public async Task<IList<Models.LogFile>> GetLogFiles()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/log/file");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.LogFile>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.LogFile>>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -74,7 +75,7 @@ namespace RadarrSharp.Endpoints.Log
             };
 
             var json = await _radarrClient.ProcessJson("GET", $"/log{ParameterHelper.BuildParameterString(param)}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Log>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Log>(json, ObjectConverter.Settings));
         }
     }
 }

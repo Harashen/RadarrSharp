@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.Diskspace
@@ -29,7 +30,7 @@ namespace RadarrSharp.Endpoints.Diskspace
         public async Task<IList<Models.Diskspace>> GetDiskspace()
         {
             var json = await _radarrClient.ProcessJson("GET", "/diskspace");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Diskspace>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Diskspace>>(json, ObjectConverter.Settings));
         }
     }
 }

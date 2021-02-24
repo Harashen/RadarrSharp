@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.CustomFormat
@@ -29,7 +30,7 @@ namespace RadarrSharp.Endpoints.CustomFormat
         public async Task<IList<Models.CustomFormat>> GetCustomFormats()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/customFormat");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.CustomFormat>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.CustomFormat>>(json, ObjectConverter.Settings));
         }
     }
 }

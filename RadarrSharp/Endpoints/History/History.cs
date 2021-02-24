@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.History
@@ -41,7 +42,7 @@ namespace RadarrSharp.Endpoints.History
             };
 
             var json = await _radarrClient.ProcessJson("GET", $"/history{ParameterHelper.BuildParameterString(param)}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.History>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.History>(json, ObjectConverter.Settings));
         }
     }
 }

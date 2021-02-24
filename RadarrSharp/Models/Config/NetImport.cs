@@ -1,4 +1,5 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+﻿
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models.Config
 {
@@ -13,7 +14,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The net import synchronize interval.
         /// </value>
-        [J("netImportSyncInterval")] public long NetImportSyncInterval { get; set; }
+        [JsonPropertyName("netImportSyncInterval")] public long NetImportSyncInterval { get; set; }
 
         /// <summary>
         /// Gets or sets the list synchronize level.
@@ -21,7 +22,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The list synchronize level.
         /// </value>
-        [J("listSyncLevel")] public string ListSyncLevel { get; set; }
+        [JsonPropertyName("listSyncLevel")] public string ListSyncLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the import exclusions.
@@ -29,7 +30,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The import exclusions.
         /// </value>
-        [J("importExclusions")] public string ImportExclusions { get; set; }
+        [JsonPropertyName("importExclusions")] public string ImportExclusions { get; set; }
 
         /// <summary>
         /// Gets or sets the trakt authentication token.
@@ -37,7 +38,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The trakt authentication token.
         /// </value>
-        [J("traktAuthToken")] public string TraktAuthToken { get; set; }
+        [JsonPropertyName("traktAuthToken")] public string TraktAuthToken { get; set; }
 
         /// <summary>
         /// Gets or sets the trakt refresh token.
@@ -45,7 +46,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The trakt refresh token.
         /// </value>
-        [J("traktRefreshToken")] public string TraktRefreshToken { get; set; }
+        [JsonPropertyName("traktRefreshToken")] public string TraktRefreshToken { get; set; }
 
         /// <summary>
         /// Gets or sets the trakt token expiry.
@@ -53,7 +54,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The trakt token expiry.
         /// </value>
-        [J("traktTokenExpiry")] public long TraktTokenExpiry { get; set; }
+        [JsonPropertyName("traktTokenExpiry")] public long TraktTokenExpiry { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -61,6 +62,6 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [JsonPropertyName("id")] public long Id { get; set; }
     }
 }

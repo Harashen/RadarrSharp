@@ -1,7 +1,8 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.Calendar
@@ -30,7 +31,7 @@ namespace RadarrSharp.Endpoints.Calendar
         public async Task<IList<Models.Calendar>> GetCalendar()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/calendar");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Calendar>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Calendar>>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace RadarrSharp.Endpoints.Calendar
             };
 
             var json = await _radarrClient.ProcessJson("GET", $"/calendar{ParameterHelper.BuildParameterString(param)}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Calendar>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Calendar>>(json, ObjectConverter.Settings));
         }
     }
 }

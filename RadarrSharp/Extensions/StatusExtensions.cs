@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Enums;
+
 using System;
+using System.Text.Json;
 
 namespace RadarrSharp.Extensions
 {
@@ -18,22 +19,22 @@ namespace RadarrSharp.Extensions
             }
         }
 
-        public static Status ReadJson(JsonReader reader, JsonSerializer serializer)
+        public static Status ReadJson(Utf8JsonReader reader)
         {
-            var str = serializer.Deserialize<string>(reader);
+            var str = JsonSerializer.Deserialize<string>(ref reader);
             var maybeValue = ValueForString(str);
             if (maybeValue.HasValue) return maybeValue.Value;
             throw new Exception("Unknown enum case " + str);
         }
 
-        public static void WriteJson(this Status value, JsonWriter writer, JsonSerializer serializer)
+        public static void WriteJson(this Status value, Utf8JsonWriter writer)
         {
             switch (value)
             {
-                case Status.Announced: serializer.Serialize(writer, "announced"); break;
-                case Status.InCinemas: serializer.Serialize(writer, "inCinemas"); break;
-                case Status.Released: serializer.Serialize(writer, "released"); break;
-                case Status.Tba: serializer.Serialize(writer, "tba"); break;
+                case Status.Announced: JsonSerializer.Serialize(writer, "announced"); break;
+                case Status.InCinemas: JsonSerializer.Serialize(writer, "inCinemas"); break;
+                case Status.Released: JsonSerializer.Serialize(writer, "released"); break;
+                case Status.Tba: JsonSerializer.Serialize(writer, "tba"); break;
             }
         }
     }

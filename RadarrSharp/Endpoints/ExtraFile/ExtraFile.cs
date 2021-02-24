@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.ExtraFile
@@ -35,7 +36,7 @@ namespace RadarrSharp.Endpoints.ExtraFile
             };
 
             var json = await _radarrClient.ProcessJson("GET", $"/extraFile{ParameterHelper.BuildParameterString(param)}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.ExtraFile>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.ExtraFile>>(json, ObjectConverter.Settings));
         }
     }
 }

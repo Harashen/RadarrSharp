@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The quality.
         /// </value>
-        [J("quality")] public Cutoff Quality { get; set; }
+        [JsonPropertyName("quality")] public Cutoff Quality { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Item"/> is allowed.
@@ -21,6 +21,6 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if allowed; otherwise, <c>false</c>.
         /// </value>
-        [J("allowed")] public bool Allowed { get; set; }
+        [JsonPropertyName("allowed")] public bool Allowed { get; set; }
     }
 }

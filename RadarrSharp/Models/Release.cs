@@ -1,8 +1,8 @@
-﻿using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
-using N = Newtonsoft.Json.NullValueHandling;
 using RadarrSharp.Enums;
+
+using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -17,7 +17,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The unique identifier.
         /// </value>
-        [J("guid")] public string Guid { get; set; }
+        [JsonPropertyName("guid")] public string Guid { get; set; }
 
         /// <summary>
         /// Gets or sets the quality.
@@ -25,7 +25,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The quality.
         /// </value>
-        [J("quality")] public ReleaseQuality Quality { get; set; }
+        [JsonPropertyName("quality")] public ReleaseQuality Quality { get; set; }
 
         /// <summary>
         /// Gets or sets the quality weight.
@@ -33,7 +33,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The quality weight.
         /// </value>
-        [J("qualityWeight")] public long QualityWeight { get; set; }
+        [JsonPropertyName("qualityWeight")] public long QualityWeight { get; set; }
 
         /// <summary>
         /// Gets or sets the age.
@@ -41,7 +41,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The age.
         /// </value>
-        [J("age")] public long Age { get; set; }
+        [JsonPropertyName("age")] public long Age { get; set; }
 
         /// <summary>
         /// Gets or sets the age hours.
@@ -49,7 +49,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The age hours.
         /// </value>
-        [J("ageHours")] public double AgeHours { get; set; }
+        [JsonPropertyName("ageHours")] public double AgeHours { get; set; }
 
         /// <summary>
         /// Gets or sets the age minutes.
@@ -57,7 +57,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The age minutes.
         /// </value>
-        [J("ageMinutes")] public double AgeMinutes { get; set; }
+        [JsonPropertyName("ageMinutes")] public double AgeMinutes { get; set; }
 
         /// <summary>
         /// Gets or sets the size.
@@ -65,7 +65,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The size.
         /// </value>
-        [J("size")] public long Size { get; set; }
+        [JsonPropertyName("size")] public long Size { get; set; }
 
         /// <summary>
         /// Gets or sets the indexer identifier.
@@ -73,7 +73,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The indexer identifier.
         /// </value>
-        [J("indexerId")] public int IndexerId { get; set; }
+        [JsonPropertyName("indexerId")] public int IndexerId { get; set; }
 
         /// <summary>
         /// Gets or sets the indexer.
@@ -81,7 +81,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The indexer.
         /// </value>
-        [J("indexer")] public string Indexer { get; set; }
+        [JsonPropertyName("indexer")] public string Indexer { get; set; }
 
         /// <summary>
         /// Gets or sets the release hash.
@@ -89,7 +89,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The release hash.
         /// </value>
-        [J("releaseHash", NullValueHandling = N.Ignore)] public string ReleaseHash { get; set; }
+        [JsonPropertyName("releaseHash")] public string ReleaseHash { get; set; }
 
         /// <summary>
         /// Gets or sets the edition.
@@ -97,7 +97,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The edition.
         /// </value>
-        [J("edition", NullValueHandling = N.Ignore)] public string Edition { get; set; }
+        [JsonPropertyName("edition")] public string Edition { get; set; }
 
         /// <summary>
         /// Gets or sets the title.
@@ -105,7 +105,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The title.
         /// </value>
-        [J("title")] public string Title { get; set; }
+        [JsonPropertyName("title")] public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [full season].
@@ -113,7 +113,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if [full season]; otherwise, <c>false</c>.
         /// </value>
-        [J("fullSeason")] public bool FullSeason { get; set; }
+        [JsonPropertyName("fullSeason")] public bool FullSeason { get; set; }
 
         /// <summary>
         /// Gets or sets the season number.
@@ -121,7 +121,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public int SeasonNumber { get; set; }
+        [JsonPropertyName("seasonNumber")] public int SeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the language.
@@ -129,7 +129,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The language.
         /// </value>
-        [J("language")] public string Language { get; set; }
+        [JsonPropertyName("language")] public string Language { get; set; }
 
         /// <summary>
         /// Gets or sets the year.
@@ -137,7 +137,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The year.
         /// </value>
-        [J("year")] public long Year { get; set; }
+        [JsonPropertyName("year")] public long Year { get; set; }
 
         /// <summary>
         /// Gets or sets the movie title.
@@ -145,7 +145,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The movie title.
         /// </value>
-        [J("movieTitle")] public string MovieTitle { get; set; }
+        [JsonPropertyName("movieTitle")] public string MovieTitle { get; set; }
 
         /// <summary>
         /// Gets or sets the episode numbers.
@@ -153,7 +153,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The episode numbers.
         /// </value>
-        [J("episodeNumbers")] public List<object> EpisodeNumbers { get; set; }
+        [JsonPropertyName("episodeNumbers")] public List<object> EpisodeNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets the absolute episode numbers.
@@ -161,7 +161,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The absolute episode numbers.
         /// </value>
-        [J("absoluteEpisodeNumbers")] public List<object> AbsoluteEpisodeNumbers { get; set; }
+        [JsonPropertyName("absoluteEpisodeNumbers")] public List<object> AbsoluteEpisodeNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Release"/> is approved.
@@ -169,7 +169,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if approved; otherwise, <c>false</c>.
         /// </value>
-        [J("approved")] public bool Approved { get; set; }
+        [JsonPropertyName("approved")] public bool Approved { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [temporarily rejected].
@@ -177,7 +177,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if [temporarily rejected]; otherwise, <c>false</c>.
         /// </value>
-        [J("temporarilyRejected")] public bool TemporarilyRejected { get; set; }
+        [JsonPropertyName("temporarilyRejected")] public bool TemporarilyRejected { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Release"/> is rejected.
@@ -185,7 +185,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if rejected; otherwise, <c>false</c>.
         /// </value>
-        [J("rejected")] public bool Rejected { get; set; }
+        [JsonPropertyName("rejected")] public bool Rejected { get; set; }
 
         /// <summary>
         /// Gets or sets the TVDB identifier.
@@ -193,7 +193,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The TVDB identifier.
         /// </value>
-        [J("tvdbId")] public long TvdbId { get; set; }
+        [JsonPropertyName("tvdbId")] public long TvdbId { get; set; }
 
         /// <summary>
         /// Gets or sets the tv rage identifier.
@@ -201,7 +201,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The tv rage identifier.
         /// </value>
-        [J("tvRageId")] public long TvRageId { get; set; }
+        [JsonPropertyName("tvRageId")] public long TvRageId { get; set; }
 
         /// <summary>
         /// Gets or sets the rejections.
@@ -209,7 +209,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The rejections.
         /// </value>
-        [J("rejections")] public List<string> Rejections { get; set; }
+        [JsonPropertyName("rejections")] public List<string> Rejections { get; set; }
 
         /// <summary>
         /// Gets or sets the publish date.
@@ -217,7 +217,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The publish date.
         /// </value>
-        [J("publishDate")] public DateTimeOffset PublishDate { get; set; }
+        [JsonPropertyName("publishDate")] public DateTimeOffset PublishDate { get; set; }
 
         /// <summary>
         /// Gets or sets the comment URL.
@@ -225,7 +225,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The comment URL.
         /// </value>
-        [J("commentUrl")] public string CommentUrl { get; set; }
+        [JsonPropertyName("commentUrl")] public string CommentUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the download URL.
@@ -233,7 +233,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The download URL.
         /// </value>
-        [J("downloadUrl")] public string DownloadUrl { get; set; }
+        [JsonPropertyName("downloadUrl")] public string DownloadUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the information URL.
@@ -241,7 +241,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The information URL.
         /// </value>
-        [J("infoUrl")] public string InfoUrl { get; set; }
+        [JsonPropertyName("infoUrl")] public string InfoUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the mapping result.
@@ -249,7 +249,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The mapping result.
         /// </value>
-        [J("mappingResult")] public MappingResult MappingResult { get; set; }
+        [JsonPropertyName("mappingResult")] public MappingResult MappingResult { get; set; }
 
         /// <summary>
         /// Gets or sets the release weight.
@@ -257,7 +257,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The release weight.
         /// </value>
-        [J("releaseWeight")] public long ReleaseWeight { get; set; }
+        [JsonPropertyName("releaseWeight")] public long ReleaseWeight { get; set; }
 
         /// <summary>
         /// Gets or sets the suspected movie identifier.
@@ -265,7 +265,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The suspected movie identifier.
         /// </value>
-        [J("suspectedMovieId")] public long SuspectedMovieId { get; set; }
+        [JsonPropertyName("suspectedMovieId")] public long SuspectedMovieId { get; set; }
 
         /// <summary>
         /// Gets or sets the indexer flags.
@@ -273,7 +273,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The indexer flags.
         /// </value>
-        [J("indexerFlags")] public List<string> IndexerFlags { get; set; }
+        [JsonPropertyName("indexerFlags")] public List<string> IndexerFlags { get; set; }
 
         /// <summary>
         /// Gets or sets the magnet URL.
@@ -281,7 +281,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The magnet URL.
         /// </value>
-        [J("magnetUrl")] public string MagnetUrl { get; set; }
+        [JsonPropertyName("magnetUrl")] public string MagnetUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the information hash.
@@ -289,7 +289,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The information hash.
         /// </value>
-        [J("infoHash")] public string InfoHash { get; set; }
+        [JsonPropertyName("infoHash")] public string InfoHash { get; set; }
 
         /// <summary>
         /// Gets or sets the seeders.
@@ -297,7 +297,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The seeders.
         /// </value>
-        [J("seeders")] public int Seeders { get; set; }
+        [JsonPropertyName("seeders")] public int Seeders { get; set; }
 
         /// <summary>
         /// Gets or sets the leechers.
@@ -305,7 +305,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The leechers.
         /// </value>
-        [J("leechers")] public int Leechers { get; set; }
+        [JsonPropertyName("leechers")] public int Leechers { get; set; }
 
         /// <summary>
         /// Gets or sets the protocol.
@@ -313,7 +313,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The protocol.
         /// </value>
-        [J("protocol")] public Protocol Protocol { get; set; }
+        [JsonPropertyName("protocol")] public Protocol Protocol { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is daily.
@@ -321,7 +321,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is daily; otherwise, <c>false</c>.
         /// </value>
-        [J("isDaily")] public bool IsDaily { get; set; }
+        [JsonPropertyName("isDaily")] public bool IsDaily { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is absolute numbering.
@@ -329,7 +329,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is absolute numbering; otherwise, <c>false</c>.
         /// </value>
-        [J("isAbsoluteNumbering")] public bool IsAbsoluteNumbering { get; set; }
+        [JsonPropertyName("isAbsoluteNumbering")] public bool IsAbsoluteNumbering { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is possible special episode.
@@ -337,7 +337,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is possible special episode; otherwise, <c>false</c>.
         /// </value>
-        [J("isPossibleSpecialEpisode")] public bool IsPossibleSpecialEpisode { get; set; }
+        [JsonPropertyName("isPossibleSpecialEpisode")] public bool IsPossibleSpecialEpisode { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Release"/> is special.
@@ -345,7 +345,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if special; otherwise, <c>false</c>.
         /// </value>
-        [J("special")] public bool Special { get; set; }
+        [JsonPropertyName("special")] public bool Special { get; set; }
 
         /// <summary>
         /// Gets or sets the release group.
@@ -353,6 +353,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The release group.
         /// </value>
-        [J("releaseGroup", NullValueHandling = N.Ignore)] public string ReleaseGroup { get; set; }
+        [JsonPropertyName("releaseGroup")] public string ReleaseGroup { get; set; }
     }
 }

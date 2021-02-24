@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.RootFolder
@@ -29,7 +30,7 @@ namespace RadarrSharp.Endpoints.RootFolder
         public async Task<IList<Models.RootFolder>> GetRootFolders()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/rootFolder");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.RootFolder>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.RootFolder>>(json, ObjectConverter.Settings));
         }
     }
 }

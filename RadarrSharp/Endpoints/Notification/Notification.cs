@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.Notification
@@ -29,7 +30,7 @@ namespace RadarrSharp.Endpoints.Notification
         public async Task<IList<Models.Notification>> GetNotificationAgents()
         {
             var json = await _radarrClient.ProcessJson("GET", "/notification");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Notification>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Notification>>(json, ObjectConverter.Settings));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The path.
         /// </value>
-        [J("path")] public string Path { get; set; }
+        [JsonPropertyName("path")] public string Path { get; set; }
 
         /// <summary>
         /// Gets or sets the label.
@@ -21,7 +21,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The label.
         /// </value>
-        [J("label")] public string Label { get; set; }
+        [JsonPropertyName("label")] public string Label { get; set; }
 
         /// <summary>
         /// Gets or sets the free space.
@@ -29,7 +29,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The free space.
         /// </value>
-        [J("freeSpace")] public long FreeSpace { get; set; }
+        [JsonPropertyName("freeSpace")] public long FreeSpace { get; set; }
 
         /// <summary>
         /// Gets or sets the total space.
@@ -37,6 +37,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The total space.
         /// </value>
-        [J("totalSpace")] public long TotalSpace { get; set; }
+        [JsonPropertyName("totalSpace")] public long TotalSpace { get; set; }
     }
 }

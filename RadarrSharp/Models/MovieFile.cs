@@ -1,6 +1,5 @@
-﻿using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
-using N = Newtonsoft.Json.NullValueHandling;
+using System;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -15,7 +14,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The movie identifier.
         /// </value>
-        [J("movieId")] public int MovieId { get; set; }
+        [JsonPropertyName("movieId")] public int MovieId { get; set; }
 
         /// <summary>
         /// Gets or sets the relative path.
@@ -23,7 +22,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The relative path.
         /// </value>
-        [J("relativePath")] public string RelativePath { get; set; }
+        [JsonPropertyName("relativePath")] public string RelativePath { get; set; }
 
         /// <summary>
         /// Gets or sets the size.
@@ -31,7 +30,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The size.
         /// </value>
-        [J("size")] public long Size { get; set; }
+        [JsonPropertyName("size")] public long Size { get; set; }
 
         /// <summary>
         /// Gets or sets the date added.
@@ -39,7 +38,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The date added.
         /// </value>
-        [J("dateAdded")] public DateTimeOffset DateAdded { get; set; }
+        [JsonPropertyName("dateAdded")] public DateTimeOffset DateAdded { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the scene.
@@ -47,7 +46,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The name of the scene.
         /// </value>
-        [J("sceneName", NullValueHandling = N.Ignore)] public string SceneName { get; set; }
+        [JsonPropertyName("sceneName")] public string SceneName { get; set; }
 
         /// <summary>
         /// Gets or sets the release group.
@@ -55,7 +54,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The release group.
         /// </value>
-        [J("releaseGroup", NullValueHandling = N.Ignore)] public string ReleaseGroup { get; set; }
+        [JsonPropertyName("releaseGroup")] public string ReleaseGroup { get; set; }
 
         /// <summary>
         /// Gets or sets the quality.
@@ -63,7 +62,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The quality.
         /// </value>
-        [J("quality")] public MovieFileQuality Quality { get; set; }
+        [JsonPropertyName("quality")] public MovieFileQuality Quality { get; set; }
 
         /// <summary>
         /// Gets or sets the edition.
@@ -71,7 +70,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The edition.
         /// </value>
-        [J("edition")] public string Edition { get; set; }
+        [JsonPropertyName("edition")] public string Edition { get; set; }
 
         /// <summary>
         /// Gets or sets the media information.
@@ -79,7 +78,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The media information.
         /// </value>
-        [J("mediaInfo")] public MediaInfo MediaInfo { get; set; }
+        [JsonPropertyName("mediaInfo")] public MediaInfo MediaInfo { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -87,6 +86,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace RadarrSharp.Models
 {
@@ -36,9 +36,8 @@ namespace RadarrSharp.Models
         /// Initializes a new instance of the <see cref="Value"/> struct.
         /// </summary>
         /// <param name="reader">The reader.</param>
-        /// <param name="serializer">The serializer.</param>
         /// <exception cref="Exception">Cannot convert Value</exception>
-        public Value(JsonReader reader, JsonSerializer serializer)
+        public Value(Utf8JsonReader reader)
         {
             Bool = null;
             Integer = null;
@@ -47,18 +46,19 @@ namespace RadarrSharp.Models
 
             switch (reader.TokenType)
             {
-                case JsonToken.Integer:
-                    Integer = serializer.Deserialize<long>(reader);
+                case JsonTokenType.Number:
+                    Integer = JsonSerializer.Deserialize<long>(ref reader);
                     return;
-                case JsonToken.Boolean:
-                    Bool = serializer.Deserialize<bool>(reader);
+                case JsonTokenType.True:
+                case JsonTokenType.False:
+                    Bool = JsonSerializer.Deserialize<bool>(ref reader);
                     return;
-                case JsonToken.StartArray:
-                    AnythingArray = serializer.Deserialize<List<object>>(reader);
+                case JsonTokenType.StartArray:
+                    AnythingArray = JsonSerializer.Deserialize<List<object>>(ref reader);
                     return;
-                case JsonToken.String:
-                case JsonToken.Date:
-                    String = serializer.Deserialize<string>(reader);
+                case JsonTokenType.String:
+                //case JsonTokenType.Date:
+                    String = JsonSerializer.Deserialize<string>(ref reader);
                     return;
             }
             throw new Exception("Cannot convert Value");
@@ -68,28 +68,27 @@ namespace RadarrSharp.Models
         /// Writes the json.
         /// </summary>
         /// <param name="writer">The writer.</param>
-        /// <param name="serializer">The serializer.</param>
         /// <exception cref="Exception">Union must not be null</exception>
-        public void WriteJson(JsonWriter writer, JsonSerializer serializer)
+        public void WriteJson(Utf8JsonWriter writer)
         {
             if (Bool != null)
             {
-                serializer.Serialize(writer, Bool);
+                JsonSerializer.Serialize(writer, Bool);
                 return;
             }
             if (Integer != null)
             {
-                serializer.Serialize(writer, Integer);
+                JsonSerializer.Serialize(writer, Integer);
                 return;
             }
             if (AnythingArray != null)
             {
-                serializer.Serialize(writer, AnythingArray);
+                JsonSerializer.Serialize(writer, AnythingArray);
                 return;
             }
             if (String != null)
             {
-                serializer.Serialize(writer, String);
+                JsonSerializer.Serialize(writer, String);
                 return;
             }
             throw new Exception("Union must not be null");

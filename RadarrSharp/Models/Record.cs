@@ -1,6 +1,5 @@
-﻿using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
-using N = Newtonsoft.Json.NullValueHandling;
+using System;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -15,7 +14,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The movie identifier.
         /// </value>
-        [J("movieId")] public int MovieId { get; set; }
+        [JsonPropertyName("movieId")] public int MovieId { get; set; }
 
         /// <summary>
         /// Gets or sets the source title.
@@ -23,7 +22,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The source title.
         /// </value>
-        [J("sourceTitle")] public string SourceTitle { get; set; }
+        [JsonPropertyName("sourceTitle")] public string SourceTitle { get; set; }
 
         /// <summary>
         /// Gets or sets the quality.
@@ -31,7 +30,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The quality.
         /// </value>
-        [J("quality")] public RecordQuality Quality { get; set; }
+        [JsonPropertyName("quality")] public RecordQuality Quality { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [quality cutoff not met].
@@ -39,7 +38,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if [quality cutoff not met]; otherwise, <c>false</c>.
         /// </value>
-        [J("qualityCutoffNotMet")] public bool QualityCutoffNotMet { get; set; }
+        [JsonPropertyName("qualityCutoffNotMet")] public bool QualityCutoffNotMet { get; set; }
 
         /// <summary>
         /// Gets or sets the date.
@@ -47,7 +46,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The date.
         /// </value>
-        [J("date")] public DateTimeOffset Date { get; set; }
+        [JsonPropertyName("date")] public DateTimeOffset Date { get; set; }
 
         /// <summary>
         /// Gets or sets the download identifier.
@@ -55,7 +54,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The download identifier.
         /// </value>
-        [J("downloadId", NullValueHandling = N.Ignore)] public string DownloadId { get; set; }
+        [JsonPropertyName("downloadId")] public string DownloadId { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the event.
@@ -63,7 +62,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The type of the event.
         /// </value>
-        [J("eventType")] public string EventType { get; set; }
+        [JsonPropertyName("eventType")] public string EventType { get; set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -71,7 +70,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The data.
         /// </value>
-        [J("data")] public Data Data { get; set; }
+        [JsonPropertyName("data")] public Data Data { get; set; }
 
         /// <summary>
         /// Gets or sets the movie.
@@ -79,7 +78,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The movie.
         /// </value>
-        [J("movie")] public Movie Movie { get; set; }
+        [JsonPropertyName("movie")] public Movie Movie { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -87,6 +86,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

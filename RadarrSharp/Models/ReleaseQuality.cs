@@ -1,5 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
-using N = Newtonsoft.Json.NullValueHandling;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -14,7 +13,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The quality.
         /// </value>
-        [J("quality")] public QualityQuality Quality { get; set; }
+        [JsonPropertyName("quality")] public QualityQuality Quality { get; set; }
 
         /// <summary>
         /// Gets or sets the revision.
@@ -22,7 +21,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The revision.
         /// </value>
-        [J("revision")] public Revision Revision { get; set; }
+        [JsonPropertyName("revision")] public Revision Revision { get; set; }
 
         /// <summary>
         /// Gets or sets the hardcoded subs.
@@ -30,6 +29,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The hardcoded subs.
         /// </value>
-        [J("hardcodedSubs", NullValueHandling = N.Ignore)] public string HardcodedSubs { get; set; }
+        [JsonPropertyName("hardcodedSubs")] public string HardcodedSubs { get; set; }
     }
 }

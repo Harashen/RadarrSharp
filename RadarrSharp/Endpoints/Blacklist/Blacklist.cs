@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.Blacklist
@@ -37,7 +38,7 @@ namespace RadarrSharp.Endpoints.Blacklist
             };
 
             var json = await _radarrClient.ProcessJson("GET", $"/blacklist{ParameterHelper.BuildParameterString(param)}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Blacklist>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Blacklist>(json, ObjectConverter.Settings));
         }
 
         /// <summary>

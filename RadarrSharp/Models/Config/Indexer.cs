@@ -1,4 +1,5 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+﻿
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models.Config
 {
@@ -13,7 +14,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The minimum age.
         /// </value>
-        [J("minimumAge")] public long MinimumAge { get; set; }
+        [JsonPropertyName("minimumAge")] public long MinimumAge { get; set; }
 
         /// <summary>
         /// Gets or sets the maximum size.
@@ -21,7 +22,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The maximum size.
         /// </value>
-        [J("maximumSize")] public long MaximumSize { get; set; }
+        [JsonPropertyName("maximumSize")] public long MaximumSize { get; set; }
 
         /// <summary>
         /// Gets or sets the retention.
@@ -29,7 +30,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The retention.
         /// </value>
-        [J("retention")] public long Retention { get; set; }
+        [JsonPropertyName("retention")] public long Retention { get; set; }
 
         /// <summary>
         /// Gets or sets the RSS synchronize interval.
@@ -37,7 +38,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The RSS synchronize interval.
         /// </value>
-        [J("rssSyncInterval")] public long RssSyncInterval { get; set; }
+        [JsonPropertyName("rssSyncInterval")] public long RssSyncInterval { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [prefer indexer flags].
@@ -45,7 +46,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [prefer indexer flags]; otherwise, <c>false</c>.
         /// </value>
-        [J("preferIndexerFlags")] public bool PreferIndexerFlags { get; set; }
+        [JsonPropertyName("preferIndexerFlags")] public bool PreferIndexerFlags { get; set; }
 
         /// <summary>
         /// Gets or sets the availability delay.
@@ -53,7 +54,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The availability delay.
         /// </value>
-        [J("availabilityDelay")] public long AvailabilityDelay { get; set; }
+        [JsonPropertyName("availabilityDelay")] public long AvailabilityDelay { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [allow hardcoded subs].
@@ -61,7 +62,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [allow hardcoded subs]; otherwise, <c>false</c>.
         /// </value>
-        [J("allowHardcodedSubs")] public bool AllowHardcodedSubs { get; set; }
+        [JsonPropertyName("allowHardcodedSubs")] public bool AllowHardcodedSubs { get; set; }
 
         /// <summary>
         /// Gets or sets the whitelisted hardcoded subs.
@@ -69,7 +70,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The whitelisted hardcoded subs.
         /// </value>
-        [J("whitelistedHardcodedSubs")] public string WhitelistedHardcodedSubs { get; set; }
+        [JsonPropertyName("whitelistedHardcodedSubs")] public string WhitelistedHardcodedSubs { get; set; }
 
         /// <summary>
         /// Gets or sets the parsing leniency.
@@ -77,7 +78,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The parsing leniency.
         /// </value>
-        [J("parsingLeniency")] public string ParsingLeniency { get; set; }
+        [JsonPropertyName("parsingLeniency")] public string ParsingLeniency { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -85,6 +86,6 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [JsonPropertyName("id")] public long Id { get; set; }
     }
 }

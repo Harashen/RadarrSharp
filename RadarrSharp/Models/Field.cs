@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
-using N = Newtonsoft.Json.NullValueHandling;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -15,7 +14,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The order.
         /// </value>
-        [J("order")] public int Order { get; set; }
+        [JsonPropertyName("order")] public int Order { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -23,7 +22,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The name.
         /// </value>
-        [J("name")] public string Name { get; set; }
+        [JsonPropertyName("name")] public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the label.
@@ -31,7 +30,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The label.
         /// </value>
-        [J("label")] public string Label { get; set; }
+        [JsonPropertyName("label")] public string Label { get; set; }
 
         /// <summary>
         /// Gets or sets the help link.
@@ -39,7 +38,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The help link.
         /// </value>
-        [J("helpLink", NullValueHandling = N.Ignore)] public string HelpLink { get; set; }
+        [JsonPropertyName("helpLink")] public string HelpLink { get; set; }
 
         /// <summary>
         /// Gets or sets the value.
@@ -47,7 +46,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The value.
         /// </value>
-        [J("value", NullValueHandling = N.Ignore)] public Value? Value { get; set; }
+        [JsonPropertyName("value")] public Value? Value { get; set; }
 
         /// <summary>
         /// Gets or sets the type.
@@ -55,7 +54,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The type.
         /// </value>
-        [J("type")] public string Type { get; set; }
+        [JsonPropertyName("type")] public string Type { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Field"/> is advanced.
@@ -63,7 +62,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if advanced; otherwise, <c>false</c>.
         /// </value>
-        [J("advanced")] public bool Advanced { get; set; }
+        [JsonPropertyName("advanced")] public bool Advanced { get; set; }
 
         /// <summary>
         /// Gets or sets the help text.
@@ -71,7 +70,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The help text.
         /// </value>
-        [J("helpText", NullValueHandling = N.Ignore)] public string HelpText { get; set; }
+        [JsonPropertyName("helpText")] public string HelpText { get; set; }
 
         /// <summary>
         /// Gets or sets the select options.
@@ -79,6 +78,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The select options.
         /// </value>
-        [J("selectOptions", NullValueHandling = N.Ignore)] public List<SelectOption> SelectOptions { get; set; }
+        [JsonPropertyName("selectOptions")] public List<SelectOption> SelectOptions { get; set; }
     }
 }

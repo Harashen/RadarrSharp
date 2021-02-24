@@ -1,4 +1,6 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+
+
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models.Config
 {
@@ -13,7 +15,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The bind address.
         /// </value>
-        [J("bindAddress")] public string BindAddress { get; set; }
+        [JsonPropertyName("bindAddress")] public string BindAddress { get; set; }
 
         /// <summary>
         /// Gets or sets the port.
@@ -21,7 +23,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The port.
         /// </value>
-        [J("port")] public long Port { get; set; }
+        [JsonPropertyName("port")] public long Port { get; set; }
 
         /// <summary>
         /// Gets or sets the SSL port.
@@ -29,7 +31,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The SSL port.
         /// </value>
-        [J("sslPort")] public long SslPort { get; set; }
+        [JsonPropertyName("sslPort")] public long SslPort { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [enable SSL].
@@ -37,7 +39,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [enable SSL]; otherwise, <c>false</c>.
         /// </value>
-        [J("enableSsl")] public bool EnableSsl { get; set; }
+        [JsonPropertyName("enableSsl")] public bool EnableSsl { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [launch browser].
@@ -45,7 +47,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [launch browser]; otherwise, <c>false</c>.
         /// </value>
-        [J("launchBrowser")] public bool LaunchBrowser { get; set; }
+        [JsonPropertyName("launchBrowser")] public bool LaunchBrowser { get; set; }
 
         /// <summary>
         /// Gets or sets the authentication method.
@@ -53,7 +55,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The authentication method.
         /// </value>
-        [J("authenticationMethod")] public string AuthenticationMethod { get; set; }
+        [JsonPropertyName("authenticationMethod")] public string AuthenticationMethod { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [analytics enabled].
@@ -61,7 +63,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [analytics enabled]; otherwise, <c>false</c>.
         /// </value>
-        [J("analyticsEnabled")] public bool AnalyticsEnabled { get; set; }
+        [JsonPropertyName("analyticsEnabled")] public bool AnalyticsEnabled { get; set; }
 
         /// <summary>
         /// Gets or sets the log level.
@@ -69,7 +71,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The log level.
         /// </value>
-        [J("logLevel")] public string LogLevel { get; set; }
+        [JsonPropertyName("logLevel")] public string LogLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the branch.
@@ -77,7 +79,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The branch.
         /// </value>
-        [J("branch")] public string Branch { get; set; }
+        [JsonPropertyName("branch")] public string Branch { get; set; }
 
         /// <summary>
         /// Gets or sets the API key.
@@ -85,7 +87,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The API key.
         /// </value>
-        [J("apiKey")] public string ApiKey { get; set; }
+        [JsonPropertyName("apiKey")] public string ApiKey { get; set; }
 
         /// <summary>
         /// Gets or sets the SSL cert hash.
@@ -93,7 +95,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The SSL cert hash.
         /// </value>
-        [J("sslCertHash")] public string SslCertHash { get; set; }
+        [JsonPropertyName("sslCertHash")] public string SslCertHash { get; set; }
 
         /// <summary>
         /// Gets or sets the URL base.
@@ -101,7 +103,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The URL base.
         /// </value>
-        [J("urlBase")] public string UrlBase { get; set; }
+        [JsonPropertyName("urlBase")] public string UrlBase { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [update automatically].
@@ -109,7 +111,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [update automatically]; otherwise, <c>false</c>.
         /// </value>
-        [J("updateAutomatically")] public bool UpdateAutomatically { get; set; }
+        [JsonPropertyName("updateAutomatically")] public bool UpdateAutomatically { get; set; }
 
         /// <summary>
         /// Gets or sets the update mechanism.
@@ -117,7 +119,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The update mechanism.
         /// </value>
-        [J("updateMechanism")] public string UpdateMechanism { get; set; }
+        [JsonPropertyName("updateMechanism")] public string UpdateMechanism { get; set; }
 
         /// <summary>
         /// Gets or sets the update script path.
@@ -125,7 +127,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The update script path.
         /// </value>
-        [J("updateScriptPath")] public string UpdateScriptPath { get; set; }
+        [JsonPropertyName("updateScriptPath")] public string UpdateScriptPath { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [proxy enabled].
@@ -133,7 +135,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [proxy enabled]; otherwise, <c>false</c>.
         /// </value>
-        [J("proxyEnabled")] public bool ProxyEnabled { get; set; }
+        [JsonPropertyName("proxyEnabled")] public bool ProxyEnabled { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the proxy.
@@ -141,7 +143,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The type of the proxy.
         /// </value>
-        [J("proxyType")] public string ProxyType { get; set; }
+        [JsonPropertyName("proxyType")] public string ProxyType { get; set; }
 
         /// <summary>
         /// Gets or sets the proxy hostname.
@@ -149,7 +151,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The proxy hostname.
         /// </value>
-        [J("proxyHostname")] public string ProxyHostname { get; set; }
+        [JsonPropertyName("proxyHostname")] public string ProxyHostname { get; set; }
 
         /// <summary>
         /// Gets or sets the proxy port.
@@ -157,7 +159,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The proxy port.
         /// </value>
-        [J("proxyPort")] public long ProxyPort { get; set; }
+        [JsonPropertyName("proxyPort")] public long ProxyPort { get; set; }
 
         /// <summary>
         /// Gets or sets the proxy username.
@@ -165,7 +167,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The proxy username.
         /// </value>
-        [J("proxyUsername")] public string ProxyUsername { get; set; }
+        [JsonPropertyName("proxyUsername")] public string ProxyUsername { get; set; }
 
         /// <summary>
         /// Gets or sets the proxy password.
@@ -173,7 +175,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The proxy password.
         /// </value>
-        [J("proxyPassword")] public string ProxyPassword { get; set; }
+        [JsonPropertyName("proxyPassword")] public string ProxyPassword { get; set; }
 
         /// <summary>
         /// Gets or sets the proxy bypass filter.
@@ -181,7 +183,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The proxy bypass filter.
         /// </value>
-        [J("proxyBypassFilter")] public string ProxyBypassFilter { get; set; }
+        [JsonPropertyName("proxyBypassFilter")] public string ProxyBypassFilter { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [proxy bypass local addresses].
@@ -189,7 +191,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [proxy bypass local addresses]; otherwise, <c>false</c>.
         /// </value>
-        [J("proxyBypassLocalAddresses")] public bool ProxyBypassLocalAddresses { get; set; }
+        [JsonPropertyName("proxyBypassLocalAddresses")] public bool ProxyBypassLocalAddresses { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -197,6 +199,6 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [JsonPropertyName("id")] public long Id { get; set; }
     }
 }

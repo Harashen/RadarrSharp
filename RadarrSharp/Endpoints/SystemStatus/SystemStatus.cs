@@ -1,5 +1,6 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.SystemStatus
@@ -28,7 +29,7 @@ namespace RadarrSharp.Endpoints.SystemStatus
         public async Task<Models.SystemStatus> GetSystemStatus()
         {
             var json = await _radarrClient.ProcessJson("GET", "/system/status");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.SystemStatus>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.SystemStatus>(json, ObjectConverter.Settings));
         }
     }
 }
