@@ -20,7 +20,7 @@ namespace RadarrSharpUnitTest
         [TestMethod]
         public async Task GetMovie()
         {
-            var obj = await _radarrClient.Movie.GetMovie(489);
+            var obj = await _radarrClient.Movie.GetMovie(1);
             Assert.IsNotNull(obj);
         }
 

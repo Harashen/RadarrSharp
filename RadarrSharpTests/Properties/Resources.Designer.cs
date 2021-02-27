@@ -61,7 +61,7 @@ namespace RadarrSharpTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 43bdebe9f37b4d20bd5c37834ddb8ac2.
+        ///   Looks up a localized string similar to 384215a194204d48bfc8f00ff6541bf2.
         /// </summary>
         internal static string ApiKey {
             get {
@@ -70,7 +70,7 @@ namespace RadarrSharpTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 192.168.1.250.
+        ///   Looks up a localized string similar to omv.local.
         /// </summary>
         internal static string Host {
             get {
@@ -88,7 +88,7 @@ namespace RadarrSharpTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to radarr.
+        ///   Looks up a localized string similar to .
         /// </summary>
         internal static string UrlBase {
             get {
