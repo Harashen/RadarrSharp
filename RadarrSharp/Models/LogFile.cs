@@ -1,5 +1,5 @@
-﻿using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The filename.
         /// </value>
-        [J("filename")] public string Filename { get; set; }
+        [JsonPropertyName("filename")] public string Filename { get; set; }
 
         /// <summary>
         /// Gets or sets the last write time.
@@ -22,7 +22,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The last write time.
         /// </value>
-        [J("lastWriteTime")] public DateTimeOffset LastWriteTime { get; set; }
+        [JsonPropertyName("lastWriteTime")] public DateTimeOffset LastWriteTime { get; set; }
 
         /// <summary>
         /// Gets or sets the contents URL.
@@ -30,7 +30,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The contents URL.
         /// </value>
-        [J("contentsUrl")] public string ContentsUrl { get; set; }
+        [JsonPropertyName("contentsUrl")] public string ContentsUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the download URL.
@@ -38,7 +38,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The download URL.
         /// </value>
-        [J("downloadUrl")] public string DownloadUrl { get; set; }
+        [JsonPropertyName("downloadUrl")] public string DownloadUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -46,6 +46,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

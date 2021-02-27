@@ -1,5 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
-using N = Newtonsoft.Json.NullValueHandling;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -14,7 +13,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The quality.
         /// </value>
-        [J("quality")] public QualityQuality Quality { get; set; }
+        [JsonPropertyName("quality")] public QualityQuality Quality { get; set; }
 
         /// <summary>
         /// Gets or sets the title.
@@ -22,7 +21,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The title.
         /// </value>
-        [J("title")] public string Title { get; set; }
+        [JsonPropertyName("title")] public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets the weight.
@@ -30,7 +29,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The weight.
         /// </value>
-        [J("weight")] public long Weight { get; set; }
+        [JsonPropertyName("weight")] public long Weight { get; set; }
 
         /// <summary>
         /// Gets or sets the minimum size.
@@ -38,7 +37,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The minimum size.
         /// </value>
-        [J("minSize")] public double MinSize { get; set; }
+        [JsonPropertyName("minSize")] public double MinSize { get; set; }
 
         /// <summary>
         /// Gets or sets the maximum size.
@@ -46,7 +45,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The maximum size.
         /// </value>
-        [J("maxSize", NullValueHandling = N.Ignore)] public double? MaxSize { get; set; }
+        [JsonPropertyName("maxSize")] public double? MaxSize { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -54,6 +53,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

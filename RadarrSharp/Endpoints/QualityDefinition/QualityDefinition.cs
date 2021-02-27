@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.QualityDefinition
@@ -11,7 +12,7 @@ namespace RadarrSharp.Endpoints.QualityDefinition
     /// <seealso cref="RadarrSharp.Endpoints.QualityDefinition.IQualityDefinition" />
     public class QualityDefinition : IQualityDefinition
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="QualityDefinition"/> class.
@@ -29,7 +30,7 @@ namespace RadarrSharp.Endpoints.QualityDefinition
         public async Task<IList<Models.QualityDefinition>> GetQualityDefinitions()
         {
             var json = await _radarrClient.ProcessJson("GET", "/qualityDefinition");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.QualityDefinition>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.QualityDefinition>>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -39,7 +40,7 @@ namespace RadarrSharp.Endpoints.QualityDefinition
         public async Task<Models.QualityDefinition> GetQualityDefinition(int id)
         {
             var json = await _radarrClient.ProcessJson("GET", $"/qualityDefinition/id={id}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.QualityDefinition>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.QualityDefinition>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -49,8 +50,8 @@ namespace RadarrSharp.Endpoints.QualityDefinition
         /// <returns></returns>
         public async Task<Models.QualityDefinition> UpdateQualityDefinition(Models.QualityDefinition qualityDefinition)
         {
-            var json = await _radarrClient.ProcessJson("PUT", "/qualityDefinition", JsonConvert.SerializeObject(qualityDefinition, Converter.Settings));
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.QualityDefinition>(json, Converter.Settings));
+            var json = await _radarrClient.ProcessJson("PUT", "/qualityDefinition", JsonSerializer.Serialize(qualityDefinition, ObjectConverter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.QualityDefinition>(json, ObjectConverter.Settings));
         }
     }
 }

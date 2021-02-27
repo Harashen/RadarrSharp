@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.Release
@@ -11,7 +12,7 @@ namespace RadarrSharp.Endpoints.Release
     /// <seealso cref="RadarrSharp.Endpoints.Release.IRelease" />
     public class Release : IRelease
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Release"/> class.
@@ -29,7 +30,7 @@ namespace RadarrSharp.Endpoints.Release
         public async Task<IList<Models.Release>> GetReleases()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/release");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Release>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Release>>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -39,13 +40,13 @@ namespace RadarrSharp.Endpoints.Release
         /// <returns></returns>
         public async Task<IList<Models.Release>> AddRelease(string guid)
         {
-            string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
+            string parameter = JsonSerializer.Serialize(new Dictionary<string, object>
             {
                 ["guid"] = guid
             });
 
             var json = await _radarrClient.ProcessJson("POST", $"/release", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Release>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Release>>(json, ObjectConverter.Settings));
         }
     }
 }

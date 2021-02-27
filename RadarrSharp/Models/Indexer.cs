@@ -1,6 +1,7 @@
-﻿using RadarrSharp.Enums;
+using RadarrSharp.Enums;
+
 using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -15,7 +16,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if [enable RSS]; otherwise, <c>false</c>.
         /// </value>
-        [J("enableRss")] public bool EnableRss { get; set; }
+        [JsonPropertyName("enableRss")] public bool EnableRss { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [enable search].
@@ -23,7 +24,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if [enable search]; otherwise, <c>false</c>.
         /// </value>
-        [J("enableSearch")] public bool EnableSearch { get; set; }
+        [JsonPropertyName("enableSearch")] public bool EnableSearch { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [supports RSS].
@@ -31,7 +32,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if [supports RSS]; otherwise, <c>false</c>.
         /// </value>
-        [J("supportsRss")] public bool SupportsRss { get; set; }
+        [JsonPropertyName("supportsRss")] public bool SupportsRss { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [supports search].
@@ -39,7 +40,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if [supports search]; otherwise, <c>false</c>.
         /// </value>
-        [J("supportsSearch")] public bool SupportsSearch { get; set; }
+        [JsonPropertyName("supportsSearch")] public bool SupportsSearch { get; set; }
 
         /// <summary>
         /// Gets or sets the protocol.
@@ -47,7 +48,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The protocol.
         /// </value>
-        [J("protocol")] public Protocol Protocol { get; set; }
+        [JsonPropertyName("protocol")] public Protocol Protocol { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -55,7 +56,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The name.
         /// </value>
-        [J("name")] public string Name { get; set; }
+        [JsonPropertyName("name")] public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the fields.
@@ -63,7 +64,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The fields.
         /// </value>
-        [J("fields")] public List<Field> Fields { get; set; }
+        [JsonPropertyName("fields")] public List<Field> Fields { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the implementation.
@@ -71,7 +72,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The name of the implementation.
         /// </value>
-        [J("implementationName")] public string ImplementationName { get; set; }
+        [JsonPropertyName("implementationName")] public string ImplementationName { get; set; }
 
         /// <summary>
         /// Gets or sets the implementation.
@@ -79,7 +80,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The implementation.
         /// </value>
-        [J("implementation")] public string Implementation { get; set; }
+        [JsonPropertyName("implementation")] public string Implementation { get; set; }
 
         /// <summary>
         /// Gets or sets the configuration contract.
@@ -87,7 +88,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The configuration contract.
         /// </value>
-        [J("configContract")] public string ConfigContract { get; set; }
+        [JsonPropertyName("configContract")] public string ConfigContract { get; set; }
 
         /// <summary>
         /// Gets or sets the information link.
@@ -95,7 +96,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The information link.
         /// </value>
-        [J("infoLink")] public string InfoLink { get; set; }
+        [JsonPropertyName("infoLink")] public string InfoLink { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -103,6 +104,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

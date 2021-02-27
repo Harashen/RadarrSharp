@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The pattern.
         /// </value>
-        [J("pattern")] public string Pattern { get; set; }
+        [JsonPropertyName("pattern")] public string Pattern { get; set; }
 
         /// <summary>
         /// Gets or sets the options.
@@ -21,6 +21,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The options.
         /// </value>
-        [J("options")] public string Options { get; set; }
+        [JsonPropertyName("options")] public string Options { get; set; }
     }
 }

@@ -1,7 +1,7 @@
-﻿using RadarrSharp.Enums;
+using RadarrSharp.Enums;
+
 using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
-using N = Newtonsoft.Json.NullValueHandling;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -16,7 +16,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The time.
         /// </value>
-        [J("time")] public DateTimeOffset Time { get; set; }
+        [JsonPropertyName("time")] public DateTimeOffset Time { get; set; }
 
         /// <summary>
         /// Gets or sets the level.
@@ -24,7 +24,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The level.
         /// </value>
-        [J("level")] public Level Level { get; set; }
+        [JsonPropertyName("level")] public Level Level { get; set; }
 
         /// <summary>
         /// Gets or sets the logger.
@@ -32,7 +32,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The logger.
         /// </value>
-        [J("logger")] public string Logger { get; set; }
+        [JsonPropertyName("logger")] public string Logger { get; set; }
 
         /// <summary>
         /// Gets or sets the message.
@@ -40,7 +40,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The message.
         /// </value>
-        [J("message")] public string Message { get; set; }
+        [JsonPropertyName("message")] public string Message { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -48,7 +48,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the exception.
@@ -56,7 +56,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The exception.
         /// </value>
-        [J("exception", NullValueHandling = N.Ignore)] public string Exception { get; set; }
+        [JsonPropertyName("exception")] public string Exception { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the exception.
@@ -64,6 +64,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The type of the exception.
         /// </value>
-        [J("exceptionType", NullValueHandling = N.Ignore)] public string ExceptionType { get; set; }
+        [JsonPropertyName("exceptionType")] public string ExceptionType { get; set; }
     }
 }

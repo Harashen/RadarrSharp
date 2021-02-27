@@ -1,5 +1,6 @@
-﻿using RadarrSharp.Enums;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using RadarrSharp.Enums;
+
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -14,7 +15,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The type of the source.
         /// </value>
-        [J("sourceType")] public SourceType SourceType { get; set; }
+        [JsonPropertyName("sourceType")] public SourceType SourceType { get; set; }
 
         /// <summary>
         /// Gets or sets the movie identifier.
@@ -22,7 +23,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The movie identifier.
         /// </value>
-        [J("movieId")] public int MovieId { get; set; }
+        [JsonPropertyName("movieId")] public int MovieId { get; set; }
 
         /// <summary>
         /// Gets or sets the title.
@@ -30,7 +31,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The title.
         /// </value>
-        [J("title")] public string Title { get; set; }
+        [JsonPropertyName("title")] public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets the source identifier.
@@ -38,7 +39,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The source identifier.
         /// </value>
-        [J("sourceId")] public long SourceId { get; set; }
+        [JsonPropertyName("sourceId")] public long SourceId { get; set; }
 
         /// <summary>
         /// Gets or sets the votes.
@@ -46,7 +47,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The votes.
         /// </value>
-        [J("votes")] public long Votes { get; set; }
+        [JsonPropertyName("votes")] public long Votes { get; set; }
 
         /// <summary>
         /// Gets or sets the vote count.
@@ -54,7 +55,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The vote count.
         /// </value>
-        [J("voteCount")] public long VoteCount { get; set; }
+        [JsonPropertyName("voteCount")] public long VoteCount { get; set; }
 
         /// <summary>
         /// Gets or sets the language.
@@ -62,7 +63,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The language.
         /// </value>
-        [J("language")] public string Language { get; set; }
+        [JsonPropertyName("language")] public Language Language { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -70,6 +71,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The votes.
         /// </value>
-        [J("votes")] public long Votes { get; set; }
+        [JsonPropertyName("votes")] public long Votes { get; set; }
 
         /// <summary>
         /// Gets or sets the value.
@@ -21,6 +21,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The value.
         /// </value>
-        [J("value")] public double Value { get; set; }
+        [JsonPropertyName("value")] public double Value { get; set; }
     }
 }

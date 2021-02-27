@@ -1,6 +1,7 @@
-﻿using RadarrSharp.Enums;
+using RadarrSharp.Enums;
+
 using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -15,7 +16,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The video codec.
         /// </value>
-        [J("videoCodec")] public string VideoCodec { get; set; }
+        [JsonPropertyName("videoCodec")] public string VideoCodec { get; set; }
 
         /// <summary>
         /// Gets or sets the video bitrate.
@@ -23,7 +24,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The video bitrate.
         /// </value>
-        [J("videoBitrate")] public long VideoBitrate { get; set; }
+        [JsonPropertyName("videoBitrate")] public long VideoBitrate { get; set; }
 
         /// <summary>
         /// Gets or sets the video bit depth.
@@ -31,7 +32,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The video bit depth.
         /// </value>
-        [J("videoBitDepth")] public int VideoBitDepth { get; set; }
+        [JsonPropertyName("videoBitDepth")] public int VideoBitDepth { get; set; }
 
         /// <summary>
         /// Gets or sets the width.
@@ -39,7 +40,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The width.
         /// </value>
-        [J("width")] public int Width { get; set; }
+        [JsonPropertyName("width")] public int Width { get; set; }
 
         /// <summary>
         /// Gets or sets the height.
@@ -47,7 +48,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The height.
         /// </value>
-        [J("height")] public int Height { get; set; }
+        [JsonPropertyName("height")] public int Height { get; set; }
 
         /// <summary>
         /// Gets or sets the audio format.
@@ -55,7 +56,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The audio format.
         /// </value>
-        [J("audioFormat")] public string AudioFormat { get; set; }
+        [JsonPropertyName("audioFormat")] public string AudioFormat { get; set; }
 
         /// <summary>
         /// Gets or sets the audio bitrate.
@@ -63,7 +64,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The audio bitrate.
         /// </value>
-        [J("audioBitrate")] public long AudioBitrate { get; set; }
+        [JsonPropertyName("audioBitrate")] public long AudioBitrate { get; set; }
 
         /// <summary>
         /// Gets or sets the run time.
@@ -71,7 +72,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The run time.
         /// </value>
-        [J("runTime")] public TimeSpan RunTime { get; set; }
+        [JsonPropertyName("runTime")] public TimeSpan RunTime { get; set; }
 
         /// <summary>
         /// Gets or sets the audio stream count.
@@ -79,7 +80,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The audio stream count.
         /// </value>
-        [J("audioStreamCount")] public int AudioStreamCount { get; set; }
+        [JsonPropertyName("audioStreamCount")] public int AudioStreamCount { get; set; }
 
         /// <summary>
         /// Gets or sets the audio channels.
@@ -87,7 +88,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The audio channels.
         /// </value>
-        [J("audioChannels")] public int AudioChannels { get; set; }
+        [JsonPropertyName("audioChannels")] public int AudioChannels { get; set; }
 
         /// <summary>
         /// Gets or sets the audio channel positions.
@@ -95,7 +96,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The audio channel positions.
         /// </value>
-        [J("audioChannelPositions")] public string AudioChannelPositions { get; set; }
+        [JsonPropertyName("audioChannelPositions")] public string AudioChannelPositions { get; set; }
 
         /// <summary>
         /// Gets or sets the audio channel positions text.
@@ -103,7 +104,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The audio channel positions text.
         /// </value>
-        [J("audioChannelPositionsText")] public string AudioChannelPositionsText { get; set; }
+        [JsonPropertyName("audioChannelPositionsText")] public string AudioChannelPositionsText { get; set; }
 
         /// <summary>
         /// Gets or sets the audio profile.
@@ -111,7 +112,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The audio profile.
         /// </value>
-        [J("audioProfile")] public string AudioProfile { get; set; }
+        [JsonPropertyName("audioProfile")] public string AudioProfile { get; set; }
 
         /// <summary>
         /// Gets or sets the video FPS.
@@ -119,7 +120,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The video FPS.
         /// </value>
-        [J("videoFps")] public double VideoFps { get; set; }
+        [JsonPropertyName("videoFps")] public double VideoFps { get; set; }
 
         /// <summary>
         /// Gets or sets the audio languages.
@@ -127,7 +128,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The audio languages.
         /// </value>
-        [J("audioLanguages")] public string AudioLanguages { get; set; }
+        [JsonPropertyName("audioLanguages")] public string AudioLanguages { get; set; }
 
         /// <summary>
         /// Gets or sets the subtitles.
@@ -135,7 +136,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The subtitles.
         /// </value>
-        [J("subtitles")] public string Subtitles { get; set; }
+        [JsonPropertyName("subtitles")] public string Subtitles { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the scan.
@@ -143,7 +144,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The type of the scan.
         /// </value>
-        [J("scanType")] public ScanType ScanType { get; set; }
+        [JsonPropertyName("scanType")] public ScanType ScanType { get; set; }
 
         /// <summary>
         /// Gets or sets the schema revision.
@@ -151,6 +152,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The schema revision.
         /// </value>
-        [J("schemaRevision")] public long SchemaRevision { get; set; }
+        [JsonPropertyName("schemaRevision")] public long SchemaRevision { get; set; }
     }
 }

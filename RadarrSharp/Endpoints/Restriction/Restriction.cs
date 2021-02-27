@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.Restriction
@@ -11,7 +12,7 @@ namespace RadarrSharp.Endpoints.Restriction
     /// <seealso cref="RadarrSharp.Endpoints.Restriction.IRestriction" />
     public class Restriction : IRestriction
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Restriction"/> class.
@@ -29,7 +30,7 @@ namespace RadarrSharp.Endpoints.Restriction
         public async Task<IList<Models.Restriction>> GetRestrictions()
         {
             var json = await _radarrClient.ProcessJson("GET", "/restriction");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Restriction>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Restriction>>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -39,7 +40,7 @@ namespace RadarrSharp.Endpoints.Restriction
         public async Task<Models.Restriction> GetRestriction(int id)
         {
             var json = await _radarrClient.ProcessJson("GET", $"/restriction/id={id}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Restriction>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Restriction>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -49,8 +50,8 @@ namespace RadarrSharp.Endpoints.Restriction
         /// <returns></returns>
         public async Task<Models.Restriction> UpdateRestriction(Models.Restriction restriction)
         {
-            var json = await _radarrClient.ProcessJson("PUT", "/restriction", JsonConvert.SerializeObject(restriction, Converter.Settings));
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Restriction>(json, Converter.Settings));
+            var json = await _radarrClient.ProcessJson("PUT", "/restriction", JsonSerializer.Serialize(restriction, ObjectConverter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Restriction>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -65,10 +66,10 @@ namespace RadarrSharp.Endpoints.Restriction
                 ["required"] = required
             };
 
-            string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>(dictionary));
+            string parameter = JsonSerializer.Serialize(new Dictionary<string, object>(dictionary));
 
             var json = await _radarrClient.ProcessJson("POST", "/restriction", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Restriction>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Restriction>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -83,10 +84,10 @@ namespace RadarrSharp.Endpoints.Restriction
                 ["ignored"] = ignored
             };
 
-            string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>(dictionary));
+            string parameter = JsonSerializer.Serialize(new Dictionary<string, object>(dictionary));
 
             var json = await _radarrClient.ProcessJson("POST", "/restriction", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Restriction>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Restriction>(json, ObjectConverter.Settings));
         }
 
         /// <summary>

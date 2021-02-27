@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Enums;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.Movie
@@ -13,7 +14,7 @@ namespace RadarrSharp.Endpoints.Movie
     /// <seealso cref="RadarrSharp.Endpoints.Movie.IMovie" />
     public class Movie : IMovie
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Movie" /> class.
@@ -31,7 +32,7 @@ namespace RadarrSharp.Endpoints.Movie
         public async Task<IList<Models.Movie>> GetMovies()
         {
             var json = await _radarrClient.ProcessJson("GET", "/movie");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Movie>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Movie>>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -42,7 +43,7 @@ namespace RadarrSharp.Endpoints.Movie
         /// <param name="sortKey">Sort key, id, title or date - Default id</param>
         /// <param name="sortDir">Sort direction, asc or desc - Default asc</param>
         /// <returns></returns>
-        public async Task<Models.MoviePage> GetMoviesPaged(int page = 1, int pageSize = 10, string sortKey = "id", string sortDir = "default")
+        public async Task<IList<Models.Movie>> GetMoviesPaged(int page = 1, int pageSize = 10, string sortKey = "id", string sortDir = "default")
         {
             var param = new Dictionary<string, object>
             {
@@ -53,7 +54,7 @@ namespace RadarrSharp.Endpoints.Movie
             };
 
             var json = await _radarrClient.ProcessJson("GET", $"/movie{ParameterHelper.BuildParameterString(param)}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.MoviePage>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Movie>>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -64,7 +65,7 @@ namespace RadarrSharp.Endpoints.Movie
         public async Task<Models.Movie> GetMovie(int id)
         {
             var json = await _radarrClient.ProcessJson("GET", $"/movie/id={id}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Movie>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Movie>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -99,10 +100,10 @@ namespace RadarrSharp.Endpoints.Movie
             if (addOptions != null)
                 dictionary.Add("addOptions", addOptions);
 
-            var parameter = JsonConvert.SerializeObject(new Dictionary<string, object>(dictionary));
+            var parameter = JsonSerializer.Serialize(new Dictionary<string, object>(dictionary));
 
             var json = await _radarrClient.ProcessJson("POST", "/movie", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Movie>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Movie>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -112,8 +113,8 @@ namespace RadarrSharp.Endpoints.Movie
         /// <returns></returns>
         public async Task<Models.Movie> UpdateMovie(Models.Movie movie)
         {
-            var json = await _radarrClient.ProcessJson("PUT", "/movie", JsonConvert.SerializeObject(movie, Converter.Settings));
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Movie>(json, Converter.Settings));
+            var json = await _radarrClient.ProcessJson("PUT", "/movie", JsonSerializer.Serialize(movie, ObjectConverter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Movie>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -123,8 +124,8 @@ namespace RadarrSharp.Endpoints.Movie
         /// <returns></returns>
         public async Task<IList<Models.Movie>> UpdateMovies(List<Models.Movie> movies)
         {
-            var json = await _radarrClient.ProcessJson("PUT", "/movie/editor", JsonConvert.SerializeObject(movies, Converter.Settings));
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Movie>>(json, Converter.Settings));
+            var json = await _radarrClient.ProcessJson("PUT", "/movie/editor", JsonSerializer.Serialize(movies, ObjectConverter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Movie>>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -156,7 +157,7 @@ namespace RadarrSharp.Endpoints.Movie
             };
 
             var json = await _radarrClient.ProcessJson("GET", $"/movie/lookup{ParameterHelper.BuildParameterString(param)}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Movie>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Movie>>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -167,7 +168,7 @@ namespace RadarrSharp.Endpoints.Movie
         public async Task<IList<Models.Movie>> SearchForMovieByImdbId(string imdbId)
         {
             var json = await _radarrClient.ProcessJson("GET", $"/movie/lookup?term=imdb:{imdbId}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Movie>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Movie>>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -177,8 +178,8 @@ namespace RadarrSharp.Endpoints.Movie
         /// <returns></returns>
         public async Task<IList<Models.Movie>> DiscoverMovies([Optional] MovieDiscoverAction movieDiscoverAction)
         {
-            var json = await _radarrClient.ProcessJson("GET", $"/movies/discover{(movieDiscoverAction != 0 ? $"/{movieDiscoverAction.ToString()}" : "")}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Movie>>(json, Converter.Settings));
+            var json = await _radarrClient.ProcessJson("GET", $"/movies/discover{(movieDiscoverAction != 0 ? $"/{movieDiscoverAction}" : "")}");
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Movie>>(json, ObjectConverter.Settings));
         }
     }
 }

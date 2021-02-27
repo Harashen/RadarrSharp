@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+﻿using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models.Config
 {
@@ -13,7 +13,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [automatic unmonitor previously downloaded episodes]; otherwise, <c>false</c>.
         /// </value>
-        [J("autoUnmonitorPreviouslyDownloadedEpisodes")] public bool AutoUnmonitorPreviouslyDownloadedEpisodes { get; set; }
+        [JsonPropertyName("autoUnmonitorPreviouslyDownloadedEpisodes")] public bool AutoUnmonitorPreviouslyDownloadedEpisodes { get; set; }
 
         /// <summary>
         /// Gets or sets the recycle bin.
@@ -21,7 +21,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The recycle bin.
         /// </value>
-        [J("recycleBin")] public string RecycleBin { get; set; }
+        [JsonPropertyName("recycleBin")] public string RecycleBin { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [automatic download propers].
@@ -29,7 +29,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [automatic download propers]; otherwise, <c>false</c>.
         /// </value>
-        [J("autoDownloadPropers")] public bool AutoDownloadPropers { get; set; }
+        [JsonPropertyName("autoDownloadPropers")] public bool AutoDownloadPropers { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [create empty series folders].
@@ -37,7 +37,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [create empty series folders]; otherwise, <c>false</c>.
         /// </value>
-        [J("createEmptySeriesFolders")] public bool CreateEmptySeriesFolders { get; set; }
+        [JsonPropertyName("createEmptySeriesFolders")] public bool CreateEmptySeriesFolders { get; set; }
 
         /// <summary>
         /// Gets or sets the file date.
@@ -45,7 +45,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The file date.
         /// </value>
-        [J("fileDate")] public string FileDate { get; set; }
+        [JsonPropertyName("fileDate")] public string FileDate { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [automatic rename folders].
@@ -53,7 +53,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [automatic rename folders]; otherwise, <c>false</c>.
         /// </value>
-        [J("autoRenameFolders")] public bool AutoRenameFolders { get; set; }
+        [JsonPropertyName("autoRenameFolders")] public bool AutoRenameFolders { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [paths default static].
@@ -61,7 +61,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [paths default static]; otherwise, <c>false</c>.
         /// </value>
-        [J("pathsDefaultStatic")] public bool PathsDefaultStatic { get; set; }
+        [JsonPropertyName("pathsDefaultStatic")] public bool PathsDefaultStatic { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [set permissions linux].
@@ -69,7 +69,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [set permissions linux]; otherwise, <c>false</c>.
         /// </value>
-        [J("setPermissionsLinux")] public bool SetPermissionsLinux { get; set; }
+        [JsonPropertyName("setPermissionsLinux")] public bool SetPermissionsLinux { get; set; }
 
         /// <summary>
         /// Gets or sets the file chmod.
@@ -77,7 +77,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The file chmod.
         /// </value>
-        [J("fileChmod")] public string FileChmod { get; set; }
+        [JsonPropertyName("fileChmod")] public string FileChmod { get; set; }
 
         /// <summary>
         /// Gets or sets the folder chmod.
@@ -85,7 +85,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The folder chmod.
         /// </value>
-        [J("folderChmod")] public string FolderChmod { get; set; }
+        [JsonPropertyName("folderChmod")] public string FolderChmod { get; set; }
 
         /// <summary>
         /// Gets or sets the chown user.
@@ -93,7 +93,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The chown user.
         /// </value>
-        [J("chownUser")] public string ChownUser { get; set; }
+        [JsonPropertyName("chownUser")] public string ChownUser { get; set; }
 
         /// <summary>
         /// Gets or sets the chown group.
@@ -101,7 +101,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The chown group.
         /// </value>
-        [J("chownGroup")] public string ChownGroup { get; set; }
+        [JsonPropertyName("chownGroup")] public string ChownGroup { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [skip free space check when importing].
@@ -109,7 +109,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [skip free space check when importing]; otherwise, <c>false</c>.
         /// </value>
-        [J("skipFreeSpaceCheckWhenImporting")] public bool SkipFreeSpaceCheckWhenImporting { get; set; }
+        [JsonPropertyName("skipFreeSpaceCheckWhenImporting")] public bool SkipFreeSpaceCheckWhenImporting { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [copy using hardlinks].
@@ -117,7 +117,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [copy using hardlinks]; otherwise, <c>false</c>.
         /// </value>
-        [J("copyUsingHardlinks")] public bool CopyUsingHardlinks { get; set; }
+        [JsonPropertyName("copyUsingHardlinks")] public bool CopyUsingHardlinks { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [import extra files].
@@ -125,7 +125,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [import extra files]; otherwise, <c>false</c>.
         /// </value>
-        [J("importExtraFiles")] public bool ImportExtraFiles { get; set; }
+        [JsonPropertyName("importExtraFiles")] public bool ImportExtraFiles { get; set; }
 
         /// <summary>
         /// Gets or sets the extra file extensions.
@@ -133,7 +133,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The extra file extensions.
         /// </value>
-        [J("extraFileExtensions")] public string ExtraFileExtensions { get; set; }
+        [JsonPropertyName("extraFileExtensions")] public string ExtraFileExtensions { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [enable media information].
@@ -141,7 +141,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [enable media information]; otherwise, <c>false</c>.
         /// </value>
-        [J("enableMediaInfo")] public bool EnableMediaInfo { get; set; }
+        [JsonPropertyName("enableMediaInfo")] public bool EnableMediaInfo { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -149,6 +149,6 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [JsonPropertyName("id")] public long Id { get; set; }
     }
 }

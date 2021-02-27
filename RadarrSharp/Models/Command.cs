@@ -1,5 +1,5 @@
 ﻿using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The name.
         /// </value>
-        [J("name")] public string Name { get; set; }
+        [JsonPropertyName("name")] public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the body.
@@ -22,7 +22,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The body.
         /// </value>
-        [J("body")] public Body Body { get; set; }
+        [JsonPropertyName("body")] public Body Body { get; set; }
 
         /// <summary>
         /// Gets or sets the priority.
@@ -30,7 +30,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The priority.
         /// </value>
-        [J("priority")] public string Priority { get; set; }
+        [JsonPropertyName("priority")] public string Priority { get; set; }
 
         /// <summary>
         /// Gets or sets the status.
@@ -38,7 +38,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The status.
         /// </value>
-        [J("status")] public string Status { get; set; }
+        [JsonPropertyName("status")] public string Status { get; set; }
 
         /// <summary>
         /// Gets or sets the queued.
@@ -46,7 +46,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The queued.
         /// </value>
-        [J("queued")] public DateTimeOffset Queued { get; set; }
+        [JsonPropertyName("queued")] public DateTimeOffset Queued { get; set; }
 
         /// <summary>
         /// Gets or sets the trigger.
@@ -54,7 +54,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The trigger.
         /// </value>
-        [J("trigger")] public string Trigger { get; set; }
+        [JsonPropertyName("trigger")] public string Trigger { get; set; }
 
         /// <summary>
         /// Gets or sets the state.
@@ -62,7 +62,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The state.
         /// </value>
-        [J("state")] public string State { get; set; }
+        [JsonPropertyName("state")] public string State { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Command"/> is manual.
@@ -70,7 +70,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if manual; otherwise, <c>false</c>.
         /// </value>
-        [J("manual")] public bool Manual { get; set; }
+        [JsonPropertyName("manual")] public bool Manual { get; set; }
 
         /// <summary>
         /// Gets or sets the started on.
@@ -78,7 +78,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The started on.
         /// </value>
-        [J("startedOn")] public DateTimeOffset StartedOn { get; set; }
+        [JsonPropertyName("startedOn")] public DateTimeOffset StartedOn { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [send updates to client].
@@ -86,7 +86,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if [send updates to client]; otherwise, <c>false</c>.
         /// </value>
-        [J("sendUpdatesToClient")] public bool SendUpdatesToClient { get; set; }
+        [JsonPropertyName("sendUpdatesToClient")] public bool SendUpdatesToClient { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [update scheduled task].
@@ -94,7 +94,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if [update scheduled task]; otherwise, <c>false</c>.
         /// </value>
-        [J("updateScheduledTask")] public bool UpdateScheduledTask { get; set; }
+        [JsonPropertyName("updateScheduledTask")] public bool UpdateScheduledTask { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -102,6 +102,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [JsonPropertyName("id")] public long Id { get; set; }
     }
 }

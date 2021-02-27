@@ -1,7 +1,8 @@
-﻿using RadarrSharp.Enums;
+using RadarrSharp.Enums;
+
 using System;
 using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -16,7 +17,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The movie.
         /// </value>
-        [J("movie")] public Movie Movie { get; set; }
+        [JsonPropertyName("movie")] public Movie Movie { get; set; }
 
         /// <summary>
         /// Gets or sets the quality.
@@ -24,7 +25,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The quality.
         /// </value>
-        [J("quality")] public QueueQuality Quality { get; set; }
+        [JsonPropertyName("quality")] public QueueQuality Quality { get; set; }
 
         /// <summary>
         /// Gets or sets the size.
@@ -32,7 +33,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The size.
         /// </value>
-        [J("size")] public long Size { get; set; }
+        [JsonPropertyName("size")] public long Size { get; set; }
 
         /// <summary>
         /// Gets or sets the title.
@@ -40,7 +41,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The title.
         /// </value>
-        [J("title")] public string Title { get; set; }
+        [JsonPropertyName("title")] public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets the sizeleft.
@@ -48,7 +49,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The sizeleft.
         /// </value>
-        [J("sizeleft")] public long Sizeleft { get; set; }
+        [JsonPropertyName("sizeleft")] public long Sizeleft { get; set; }
 
         /// <summary>
         /// Gets or sets the timeleft.
@@ -56,7 +57,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The timeleft.
         /// </value>
-        [J("timeleft")] public DateTimeOffset Timeleft { get; set; }
+        [JsonPropertyName("timeleft")] public DateTimeOffset Timeleft { get; set; }
 
         /// <summary>
         /// Gets or sets the estimated completion time.
@@ -64,7 +65,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The estimated completion time.
         /// </value>
-        [J("estimatedCompletionTime")] public DateTimeOffset EstimatedCompletionTime { get; set; }
+        [JsonPropertyName("estimatedCompletionTime")] public DateTimeOffset EstimatedCompletionTime { get; set; }
 
         /// <summary>
         /// Gets or sets the status.
@@ -72,7 +73,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The status.
         /// </value>
-        [J("status")] public string Status { get; set; }
+        [JsonPropertyName("status")] public string Status { get; set; }
 
         /// <summary>
         /// Gets or sets the tracked download status.
@@ -80,7 +81,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The tracked download status.
         /// </value>
-        [J("trackedDownloadStatus")] public string TrackedDownloadStatus { get; set; }
+        [JsonPropertyName("trackedDownloadStatus")] public string TrackedDownloadStatus { get; set; }
 
         /// <summary>
         /// Gets or sets the status messages.
@@ -88,7 +89,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The status messages.
         /// </value>
-        [J("statusMessages")] public List<object> StatusMessages { get; set; }
+        [JsonPropertyName("statusMessages")] public List<object> StatusMessages { get; set; }
 
         /// <summary>
         /// Gets or sets the download identifier.
@@ -96,7 +97,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The download identifier.
         /// </value>
-        [J("downloadId")] public string DownloadId { get; set; }
+        [JsonPropertyName("downloadId")] public string DownloadId { get; set; }
 
         /// <summary>
         /// Gets or sets the protocol.
@@ -104,7 +105,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The protocol.
         /// </value>
-        [J("protocol")] public Protocol Protocol { get; set; }
+        [JsonPropertyName("protocol")] public Protocol Protocol { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -112,6 +113,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

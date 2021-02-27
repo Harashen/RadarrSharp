@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+﻿using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if [send updates to client]; otherwise, <c>false</c>.
         /// </value>
-        [J("sendUpdatesToClient")] public bool SendUpdatesToClient { get; set; }
+        [JsonPropertyName("sendUpdatesToClient")] public bool SendUpdatesToClient { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [update scheduled task].
@@ -21,7 +21,7 @@ namespace RadarrSharp.Models
         /// <value>
         ///   <c>true</c> if [update scheduled task]; otherwise, <c>false</c>.
         /// </value>
-        [J("updateScheduledTask")] public bool UpdateScheduledTask { get; set; }
+        [JsonPropertyName("updateScheduledTask")] public bool UpdateScheduledTask { get; set; }
 
         /// <summary>
         /// Gets or sets the completion message.
@@ -29,7 +29,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The completion message.
         /// </value>
-        [J("completionMessage")] public string CompletionMessage { get; set; }
+        [JsonPropertyName("completionMessage")] public string CompletionMessage { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -37,7 +37,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The name.
         /// </value>
-        [J("name")] public string Name { get; set; }
+        [JsonPropertyName("name")] public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the trigger.
@@ -45,6 +45,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The trigger.
         /// </value>
-        [J("trigger")] public string Trigger { get; set; }
+        [JsonPropertyName("trigger")] public string Trigger { get; set; }
     }
 }

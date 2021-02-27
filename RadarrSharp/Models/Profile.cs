@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The name.
         /// </value>
-        [J("name")] public string Name { get; set; }
+        [JsonPropertyName("name")] public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the cutoff.
@@ -22,7 +22,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The cutoff.
         /// </value>
-        [J("cutoff")] public Cutoff Cutoff { get; set; }
+        [JsonPropertyName("cutoff")] public Cutoff Cutoff { get; set; }
 
         /// <summary>
         /// Gets or sets the preferred tags.
@@ -30,7 +30,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The preferred tags.
         /// </value>
-        [J("preferredTags")] public string PreferredTags { get; set; }
+        [JsonPropertyName("preferredTags")] public string PreferredTags { get; set; }
 
         /// <summary>
         /// Gets or sets the items.
@@ -38,7 +38,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The items.
         /// </value>
-        [J("items")] public List<Item> Items { get; set; }
+        [JsonPropertyName("items")] public List<Item> Items { get; set; }
 
         /// <summary>
         /// Gets or sets the language.
@@ -46,7 +46,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The language.
         /// </value>
-        [J("language")] public string Language { get; set; }
+        [JsonPropertyName("language")] public Language Language { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -54,6 +54,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

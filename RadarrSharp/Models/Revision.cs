@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The version.
         /// </value>
-        [J("version")] public long Version { get; set; }
+        [JsonPropertyName("version")] public long Version { get; set; }
 
         /// <summary>
         /// Gets or sets the real.
@@ -21,6 +21,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The real.
         /// </value>
-        [J("real")] public long Real { get; set; }
+        [JsonPropertyName("real")] public long Real { get; set; }
     }
 }

@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.Wanted
@@ -11,7 +12,7 @@ namespace RadarrSharp.Endpoints.Wanted
     /// <seealso cref="RadarrSharp.Endpoints.Wanted.IWanted" />
     public class Wanted : IWanted
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Wanted" /> class.
@@ -37,7 +38,7 @@ namespace RadarrSharp.Endpoints.Wanted
             };
 
             var json = await _radarrClient.ProcessJson("GET", $"/wanted/cutoff{ParameterHelper.BuildParameterString(param)}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Wanted>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Wanted>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -55,7 +56,7 @@ namespace RadarrSharp.Endpoints.Wanted
             };
 
             var json = await _radarrClient.ProcessJson("GET", $"/wanted/missing{ParameterHelper.BuildParameterString(param)}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Wanted>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Wanted>(json, ObjectConverter.Settings));
         }
     }
 }

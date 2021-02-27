@@ -1,5 +1,6 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.Config
@@ -10,7 +11,7 @@ namespace RadarrSharp.Endpoints.Config
     /// <seealso cref="RadarrSharp.Endpoints.Config.IConfig" />
     public class Config : IConfig
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Config" /> class.
@@ -28,7 +29,7 @@ namespace RadarrSharp.Endpoints.Config
         public async Task<Models.Config.DownloadClient> GetDownloadClientConfig()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/config/downloadClient");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Config.DownloadClient>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Config.DownloadClient>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace RadarrSharp.Endpoints.Config
         public async Task<Models.Config.Host> GetHostConfig()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/config/host");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Config.Host>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Config.Host>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace RadarrSharp.Endpoints.Config
         public async Task<Models.Config.Indexer> GetIndexerConfig()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/config/indexer");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Config.Indexer>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Config.Indexer>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace RadarrSharp.Endpoints.Config
         public async Task<Models.Config.MediaManagement> GetMediaManagementConfig()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/config/mediaManagement");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Config.MediaManagement>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Config.MediaManagement>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -68,7 +69,7 @@ namespace RadarrSharp.Endpoints.Config
         public async Task<Models.Config.Naming> GetNamingConfig()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/config/naming");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Config.Naming>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Config.Naming>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -78,7 +79,7 @@ namespace RadarrSharp.Endpoints.Config
         public async Task<Models.Config.NetImport> GetNetImportConfig()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/config/netImport");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Config.NetImport>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Config.NetImport>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -88,7 +89,7 @@ namespace RadarrSharp.Endpoints.Config
         public async Task<Models.Config.Ui> GetUiConfig()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/config/ui");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Config.Ui>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Config.Ui>(json, ObjectConverter.Settings));
         }
     }
 }

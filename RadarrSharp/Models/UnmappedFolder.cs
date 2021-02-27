@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The name.
         /// </value>
-        [J("name")] public string Name { get; set; }
+        [JsonPropertyName("name")] public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the path.
@@ -21,6 +21,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The path.
         /// </value>
-        [J("path")] public string Path { get; set; }
+        [JsonPropertyName("path")] public string Path { get; set; }
     }
 }

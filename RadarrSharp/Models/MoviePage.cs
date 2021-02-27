@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The page.
         /// </value>
-        [J("page")] public int Page { get; set; }
+        [JsonPropertyName("page")] public int Page { get; set; }
 
         /// <summary>
         /// Gets or sets the size of the page.
@@ -22,7 +22,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The size of the page.
         /// </value>
-        [J("pageSize")] public int PageSize { get; set; }
+        [JsonPropertyName("pageSize")] public int PageSize { get; set; }
 
         /// <summary>
         /// Gets or sets the sort key.
@@ -30,7 +30,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The sort key.
         /// </value>
-        [J("sortKey")] public string SortKey { get; set; }
+        [JsonPropertyName("sortKey")] public string SortKey { get; set; }
 
         /// <summary>
         /// Gets or sets the sort direction.
@@ -38,7 +38,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The sort direction.
         /// </value>
-        [J("sortDirection")] public string SortDirection { get; set; }
+        [JsonPropertyName("sortDirection")] public string SortDirection { get; set; }
 
         /// <summary>
         /// Gets or sets the total movies.
@@ -46,7 +46,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The total movies.
         /// </value>
-        [J("totalRecords")] public int TotalMovies { get; set; }
+        [JsonPropertyName("totalRecords")] public int TotalMovies { get; set; }
 
         /// <summary>
         /// Gets or sets the movies.
@@ -54,6 +54,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The movies.
         /// </value>
-        [J("records")] public List<Movie> Movies { get; set; }
+        [JsonPropertyName("records")] public List<Movie> Movies { get; set; }
     }
 }

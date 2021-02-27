@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The raw.
         /// </value>
-        [J("raw")] public string Raw { get; set; }
+        [JsonPropertyName("raw")] public string Raw { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the tag.
@@ -21,7 +21,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The type of the tag.
         /// </value>
-        [J("tagType")] public string TagType { get; set; }
+        [JsonPropertyName("tagType")] public string TagType { get; set; }
 
         /// <summary>
         /// Gets or sets the tag modifier.
@@ -29,7 +29,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The tag modifier.
         /// </value>
-        [J("tagModifier")] public string TagModifier { get; set; }
+        [JsonPropertyName("tagModifier")] public string TagModifier { get; set; }
 
         /// <summary>
         /// Gets or sets the format tag value.
@@ -37,6 +37,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The format tag value.
         /// </value>
-        [J("value")] public FormatTagValue FormatTagValue { get; set; }
+        [JsonPropertyName("value")] public FormatTagValue FormatTagValue { get; set; }
     }
 }

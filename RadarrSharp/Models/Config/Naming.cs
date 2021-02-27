@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+﻿using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models.Config
 {
@@ -13,7 +13,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [rename episodes]; otherwise, <c>false</c>.
         /// </value>
-        [J("renameEpisodes")] public bool RenameEpisodes { get; set; }
+        [JsonPropertyName("renameEpisodes")] public bool RenameEpisodes { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [replace illegal characters].
@@ -21,7 +21,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [replace illegal characters]; otherwise, <c>false</c>.
         /// </value>
-        [J("replaceIllegalCharacters")] public bool ReplaceIllegalCharacters { get; set; }
+        [JsonPropertyName("replaceIllegalCharacters")] public bool ReplaceIllegalCharacters { get; set; }
 
         /// <summary>
         /// Gets or sets the colon replacement format.
@@ -29,7 +29,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The colon replacement format.
         /// </value>
-        [J("colonReplacementFormat")] public string ColonReplacementFormat { get; set; }
+        [JsonPropertyName("colonReplacementFormat")] public string ColonReplacementFormat { get; set; }
 
         /// <summary>
         /// Gets or sets the standard movie format.
@@ -37,7 +37,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The standard movie format.
         /// </value>
-        [J("standardMovieFormat")] public string StandardMovieFormat { get; set; }
+        [JsonPropertyName("standardMovieFormat")] public string StandardMovieFormat { get; set; }
 
         /// <summary>
         /// Gets or sets the movie folder format.
@@ -45,7 +45,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The movie folder format.
         /// </value>
-        [J("movieFolderFormat")] public string MovieFolderFormat { get; set; }
+        [JsonPropertyName("movieFolderFormat")] public string MovieFolderFormat { get; set; }
 
         /// <summary>
         /// Gets or sets the multi episode style.
@@ -53,7 +53,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The multi episode style.
         /// </value>
-        [J("multiEpisodeStyle")] public long MultiEpisodeStyle { get; set; }
+        [JsonPropertyName("multiEpisodeStyle")] public long MultiEpisodeStyle { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [include series title].
@@ -61,7 +61,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [include series title]; otherwise, <c>false</c>.
         /// </value>
-        [J("includeSeriesTitle")] public bool IncludeSeriesTitle { get; set; }
+        [JsonPropertyName("includeSeriesTitle")] public bool IncludeSeriesTitle { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [include episode title].
@@ -69,7 +69,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [include episode title]; otherwise, <c>false</c>.
         /// </value>
-        [J("includeEpisodeTitle")] public bool IncludeEpisodeTitle { get; set; }
+        [JsonPropertyName("includeEpisodeTitle")] public bool IncludeEpisodeTitle { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [include quality].
@@ -77,7 +77,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [include quality]; otherwise, <c>false</c>.
         /// </value>
-        [J("includeQuality")] public bool IncludeQuality { get; set; }
+        [JsonPropertyName("includeQuality")] public bool IncludeQuality { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [replace spaces].
@@ -85,7 +85,7 @@ namespace RadarrSharp.Models.Config
         /// <value>
         ///   <c>true</c> if [replace spaces]; otherwise, <c>false</c>.
         /// </value>
-        [J("replaceSpaces")] public bool ReplaceSpaces { get; set; }
+        [JsonPropertyName("replaceSpaces")] public bool ReplaceSpaces { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -93,6 +93,6 @@ namespace RadarrSharp.Models.Config
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [JsonPropertyName("id")] public long Id { get; set; }
     }
 }

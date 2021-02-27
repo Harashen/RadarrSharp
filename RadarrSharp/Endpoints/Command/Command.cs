@@ -1,7 +1,8 @@
-﻿using Newtonsoft.Json;
 using RadarrSharp.Helpers;
+
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RadarrSharp.Endpoints.Command
@@ -12,7 +13,7 @@ namespace RadarrSharp.Endpoints.Command
     /// <seealso cref="RadarrSharp.Endpoints.Command.ICommand" />
     public class Command : ICommand
     {
-        private RadarrClient _radarrClient;
+        private readonly RadarrClient _radarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Command" /> class.
@@ -30,7 +31,7 @@ namespace RadarrSharp.Endpoints.Command
         public async Task<IList<Models.Command>> GetCommands()
         {
             var json = await _radarrClient.ProcessJson("GET", $"/command");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Command>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<IList<Models.Command>>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -41,7 +42,7 @@ namespace RadarrSharp.Endpoints.Command
         public async Task<Models.Command> GetCommand(int id)
         {
             var json = await _radarrClient.ProcessJson("GET", $"/command/{id}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Command>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -51,14 +52,14 @@ namespace RadarrSharp.Endpoints.Command
         /// <returns></returns>
         public async Task<Models.Command> RefreshMovie([Optional] int movieId)
         {
-            var parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
+            var parameter = JsonSerializer.Serialize(new Dictionary<string, object>
             {
                 ["name"] = "refreshMovie",
                 ["movieId"] = movieId
             });
 
             var json = await _radarrClient.ProcessJson("POST", "/command", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Command>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -68,14 +69,14 @@ namespace RadarrSharp.Endpoints.Command
         /// <returns></returns>
         public async Task<Models.Command> RescanMovie([Optional] int movieId)
         {
-            var parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
+            var parameter = JsonSerializer.Serialize(new Dictionary<string, object>
             {
                 ["name"] = "rescanMovie",
                 ["movieId"] = movieId
             });
 
             var json = await _radarrClient.ProcessJson("POST", "/command", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Command>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -85,14 +86,14 @@ namespace RadarrSharp.Endpoints.Command
         /// <returns></returns>
         public async Task<Models.Command> MoviesSearch(int[] movieIds)
         {
-            var parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
+            var parameter = JsonSerializer.Serialize(new Dictionary<string, object>
             {
                 ["name"] = "moviesSearch",
                 ["movieIds"] = movieIds
             });
 
             var json = await _radarrClient.ProcessJson("POST", "/command", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Command>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -101,13 +102,13 @@ namespace RadarrSharp.Endpoints.Command
         /// <returns></returns>
         public async Task<Models.Command> RssSync()
         {
-            var parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
+            var parameter = JsonSerializer.Serialize(new Dictionary<string, object>
             {
                 ["name"] = "rssSync"
             });
 
             var json = await _radarrClient.ProcessJson("POST", "/command", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Command>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -117,14 +118,14 @@ namespace RadarrSharp.Endpoints.Command
         /// <returns></returns>
         public async Task<Models.Command> RenameFiles(int[] files)
         {
-            var parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
+            var parameter = JsonSerializer.Serialize(new Dictionary<string, object>
             {
                 ["name"] = "renameFiles",
                 ["files"] = files
             });
 
             var json = await _radarrClient.ProcessJson("POST", "/command", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Command>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -134,14 +135,14 @@ namespace RadarrSharp.Endpoints.Command
         /// <returns></returns>
         public async Task<Models.Command> RenameMovies(int[] movieIds)
         {
-            var parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
+            var parameter = JsonSerializer.Serialize(new Dictionary<string, object>
             {
                 ["name"] = "renameMovies",
                 ["movieIds"] = movieIds
             });
 
             var json = await _radarrClient.ProcessJson("POST", "/command", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Command>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -152,7 +153,7 @@ namespace RadarrSharp.Endpoints.Command
         /// <returns></returns>
         public async Task<Models.Command> CutOffUnmetMoviesSearch(string filterKey, string filterValue)
         {
-            var parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
+            var parameter = JsonSerializer.Serialize(new Dictionary<string, object>
             {
                 ["name"] = "cutOffUnmetMoviesSearch",
                 ["filterKey"] = filterKey,
@@ -160,7 +161,7 @@ namespace RadarrSharp.Endpoints.Command
             });
 
             var json = await _radarrClient.ProcessJson("POST", "/command", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Command>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -169,13 +170,13 @@ namespace RadarrSharp.Endpoints.Command
         /// <returns></returns>
         public async Task<Models.Command> NetImportSync()
         {
-            var parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
+            var parameter = JsonSerializer.Serialize(new Dictionary<string, object>
             {
                 ["name"] = "netImportSync"
             });
 
             var json = await _radarrClient.ProcessJson("POST", "/command", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Command>(json, ObjectConverter.Settings));
         }
 
         /// <summary>
@@ -186,7 +187,7 @@ namespace RadarrSharp.Endpoints.Command
         /// <returns></returns>
         public async Task<Models.Command> MissingMoviesSearch(string filterKey, string filterValue)
         {
-            var parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
+            var parameter = JsonSerializer.Serialize(new Dictionary<string, object>
             {
                 ["name"] = "missingMoviesSearch",
                 ["filterKey"] = filterKey,
@@ -194,7 +195,7 @@ namespace RadarrSharp.Endpoints.Command
             });
 
             var json = await _radarrClient.ProcessJson("POST", "/command", parameter);
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Command>(json, ObjectConverter.Settings));
         }
     }
 }

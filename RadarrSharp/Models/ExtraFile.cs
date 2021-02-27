@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The movie identifier.
         /// </value>
-        [J("movieId")] public int MovieId { get; set; }
+        [JsonPropertyName("movieId")] public int MovieId { get; set; }
 
         /// <summary>
         /// Gets or sets the movie file identifier.
@@ -21,7 +21,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The movie file identifier.
         /// </value>
-        [J("movieFileId")] public int MovieFileId { get; set; }
+        [JsonPropertyName("movieFileId")] public int MovieFileId { get; set; }
 
         /// <summary>
         /// Gets or sets the relative path.
@@ -29,7 +29,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The relative path.
         /// </value>
-        [J("relativePath")] public string RelativePath { get; set; }
+        [JsonPropertyName("relativePath")] public string RelativePath { get; set; }
 
         /// <summary>
         /// Gets or sets the extension.
@@ -37,7 +37,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The extension.
         /// </value>
-        [J("extension")] public string Extension { get; set; }
+        [JsonPropertyName("extension")] public string Extension { get; set; }
 
         /// <summary>
         /// Gets or sets the type.
@@ -45,7 +45,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The type.
         /// </value>
-        [J("type")] public string Type { get; set; }
+        [JsonPropertyName("type")] public string Type { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -53,6 +53,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

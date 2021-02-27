@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
-using N = Newtonsoft.Json.NullValueHandling;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace RadarrSharp.Models
 {
@@ -15,7 +14,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The ignored.
         /// </value>
-        [J("ignored", NullValueHandling = N.Ignore)] public string Ignored { get; set; }
+        [JsonPropertyName("ignored")] public string Ignored { get; set; }
 
         /// <summary>
         /// Gets or sets the tags.
@@ -23,7 +22,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The tags.
         /// </value>
-        [J("tags")] public List<long> Tags { get; set; }
+        [JsonPropertyName("tags")] public List<long> Tags { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -31,7 +30,7 @@ namespace RadarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the restriction required.
@@ -39,6 +38,6 @@ namespace RadarrSharp.Models
         /// <value>
         /// The restriction required.
         /// </value>
-        [J("required", NullValueHandling = N.Ignore)] public string RestrictionRequired { get; set; }
+        [JsonPropertyName("required")] public string RestrictionRequired { get; set; }
     }
 }
